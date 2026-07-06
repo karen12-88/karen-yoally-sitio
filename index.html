@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Yoally | Mentora Espiritual & Conferencista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #C9A84C;
+            --gold-light: #F0D080;
+            --gold-pale: #FDF6E3;
+            --champagne: #F5E6C8;
+            --white: #FFFFFF;
+            --cream: #FAF8F5;
+            --dark: #1A1A1A;
+            --dark-soft: #2C2C2C;
+            --gray: #666666;
+            --gray-light: #999999;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201,168,76,0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 12px 40px;
+            box-shadow: 0 4px 30px rgba(201,168,76,0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-logo span {
+            display: block;
+            font-size: 0.65rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: var(--gray);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.75rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 1px;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(201,168,76,0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201,168,76,0.4) !important;
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s;
+        }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1A1A1A 0%, #2C2C2C 50%, #1A1A1A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 40px 80px;
+        }
+
+        .hero-text { color: white; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201,168,76,0.15);
+            border: 1px solid rgba(201,168,76,0.4);
+            color: var(--gold-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-title .gold-text {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201,168,76,0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            animation: fadeInRight 1s ease 0.3s both;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--gold), transparent, var(--gold-light));
+            border-radius: 32px;
+            z-index: -1;
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 30px;
+            display: block;
+        }
+
+        .hero-image-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 50%;
+            top: -30px;
+            right: -30px;
+            animation: rotate-slow 20s linear infinite;
+        }
+
+        .hero-image-decoration::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 50%;
+            top: 25px;
+            left: 25px;
+        }
+
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* DIVIDER */
+        .gold-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .gold-divider::before,
+        .gold-divider::after {
+            content: '';
+            flex: 1;
+            max-width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+
+        .gold-divider::after {
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        .gold-divider i { color: var(--gold); font-size: 1rem; }
+
+        /* SECTION STYLES */
+        section { padding: 100px 40px; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* RETO RENACE - DESTACADO */
+        #reto {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2C2C2C 100%);
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #reto::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 60%);
+        }
+
+        .reto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reto-badge-launch {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: pulse-gold 2s ease infinite;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(201,168,76,0); }
+        }
+
+        .reto-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .reto-title span {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .reto-question {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .reto-problems {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .reto-problem {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .reto-problem i {
+            color: var(--gold);
+            font-size: 0.8rem;
+            width: 20px;
+        }
+
+        .reto-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .reto-benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+        }
+
+        .reto-benefit i {
+            color: var(--gold-light);
+            font-size: 1rem;
+            width: 20px;
+        }
+
+        .reto-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .reto-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(201,168,76,0.2);
+            padding: 12px 16px;
+            border-radius: 12px;
+        }
+
+        .reto-info-item i {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .reto-info-item span {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.8rem;
+        }
+
+        .reto-price-box {
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .reto-price-label {
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .reto-price-current {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .reto-price-next {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+            margin-top: 8px;
+            text-decoration: line-through;
+        }
+
+        .reto-price-urgency {
+            color: #FF9B9B;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .reto-image-side {
+            position: relative;
+        }
+
+        .reto-image-wrapper {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .reto-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+            border-radius: 28px;
+            z-index: -1;
+            animation: border-glow 3s ease infinite;
+        }
+
+        @keyframes border-glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .reto-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 25px;
+        }
+
+        .reto-floating-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: white;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(201,168,76,0.4);
+            animation: pulse-gold 2s ease infinite;
+        }
+
+        .reto-floating-badge strong {
+            font-size: 1.2rem;
+            display: block;
+        }
+
+        /* QUIEN SOY */
+        #quien-soy {
+            background: var(--cream);
+            padding: 100px 40px;
+        }
+
+        .quien-soy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .historia-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 100px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .historia-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .historia-block.reverse {
+            direction: rtl;
+        }
+
+        .historia-block.reverse > * {
+            direction: ltr;
+        }
+
+        .historia-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: rgba(201,168,76,0.1);
+            line-height: 1;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+        }
+
+        .historia-text-wrapper {
+            position: relative;
+            padding: 30px;
+        }
+
+        .historia-tag {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--gold);
+            padding-left: 12px;
+        }
+
+        .historia-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .historia-text {
+            font-size: 0.95rem;
+            line-height: 1.9;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
+        .historia-image {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .historia-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 25px;
+            border: 2px solid rgba(201,168,76,0.3);
+        }
+
+        .historia-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 25px;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .historia-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* TERAPIAS */
+        #terapias {
+            background: var(--white);
+            padding: 100px 40px;
+        }
+
+        .terapias-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .terapia-card {
+            background: var(--cream);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terapia-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .terapia-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(201,168,76,0.3);
+            box-shadow: 0 20px 60px rgba(201,168,76,0.15);
+        }
+
+        .terapia-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .terapia-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(201,168,76,0.3);
+        }
+
+        .terapia-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .terapia-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* CURSOS */
+        #cursos {
+            background: var(--gold-pale);
+            padding: 100px 40px;
+        }
+
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .curso-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(201,168,76,0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curso-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        }
+
+        .curso-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(201,168,76,0.2);
+        }
+
+        .curso-tag {
+            display: inline-block;
+            background: rgba(201,168,76,0.1);
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        .curso-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .curso-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .curso-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        /* PRECIOS */
+        #precios {
+            background: var(--dark);
+            padding: 100px 40px;
+        }
+
+        #precios .section-title { color: white; }
+        #precios .section-tag { color: var(--gold-light); }
+        #precios .section-subtitle { color: rgba(255,255,255,0.6); }
+
+        .precios-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .precio-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 25px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .precio-card.featured {
+            background: rgba(201,168,76,0.08);
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .precio-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            background: rgba(201,168,76,0.06);
+        }
+
+        .precio-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .precio-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 18px;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        .precio-sessions {
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .precio-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .precio-currency {
+            font-size: 1rem;
+            color: var(--gold);
+        }
+
+        .precio-desc {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.75rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .precio-discount {
+            background: rgba(201,168,76,0.15);
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* MENTORIAS */
+        .mentorias-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mentoria-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mentoria-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201,168,76,0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .mentoria-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+        }
+
+        .mentoria-card:hover::before { opacity: 1; }
+
+        .mentoria-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .mentoria-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .mentoria-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .mentoria-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        /* AGENDA */
+        #agenda {
+            background: var(--cream);
+            padding: 100px 40px;
+        }
+
+        .calendly-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(201,168,76,0.15);
+            border: 1px solid rgba(201,168,76,0.2);
+        }
+
+        /* CONTACTO */
+        #contacto {
+            background: var(--white);
+            padding: 100px 40px;
+        }
+
+        .contacto-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contacto-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 18px 20px;
+            background: var(--cream);
+            border-radius: 15px;
+            border: 1px solid rgba(201,168,76,0.15);
+            transition: all 0.3s;
+        }
+
+        .contacto-item:hover {
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .contacto-item i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .contacto-item-text {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .contacto-item-text strong {
+            display: block;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .contacto-form {
+            background: var(--cream);
+            border-radius: 25px;
+            padding: 45px;
+            border: 1px solid rgba(201,168,76,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            background: white;
+            color: var(--dark);
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+        }
+
+        .form-group textarea { height: 120px; resize: vertical; }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0D0D0D;
+            padding: 60px 40px 30px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .nav-logo {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(201,168,76,0.1);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom span { color: var(--gold); }
+
+        /* WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            animation: pulse-wa 2s ease infinite;
+        }
+
+        @keyframes pulse-wa {
+            0%, 100% { box-shadow: 0 8px 25px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 8px 40px rgba(37,211,102,0.6); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .precios-grid { grid-template-columns: repeat(2, 1fr); }
+            .terapias-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 100px 20px 60px;
+                gap: 40px;
+            }
+
+            .hero-title { font-size: 2.2rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-image-frame img { height: 400px; }
+
+            .reto-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .reto-title { font-size: 2rem; }
+            .reto-image-side { order: -1; }
+
+            .historia-block {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .historia-block.reverse { direction: ltr; }
+
+            section { padding: 70px 20px; }
+            .section-title { font-size: 2rem; }
+
+            .terapias-grid { grid-template-columns: 1fr; }
+            .cursos-grid { grid-template-columns: 1fr; }
+            .precios-grid { grid-template-columns: 1fr; }
+            .mentorias-grid { grid-template-columns: 1fr; }
+
+            .precio-card.featured { transform: scale(1); }
+
+            .contacto-container { grid-template-columns: 1fr; gap: 40px; }
+            .contacto-form { padding: 30px 20px; }
+            .form-row { grid-template-columns: 1fr; }
+
+            .footer-content { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+            .reto-info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="nav-logo">
+            Karen Yoally
+            <span>Mentora · Guía Espiritual · Conferencista</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#reto">🔥 Reto Renace</a></li>
+            <li><a href="#quien-soy">Quién Soy</a></li>
+            <li><a href="#terapias">Terapias</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="#contacto" class="nav-cta">Contáctame</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    Mentora Espiritual Certificada
+                </div>
+                <h1 class="hero-title">
+                    Conecta con tu propósito,<br>
+                    vive con <span class="gold-text">abundancia</span><br>
+                    y encuentra la paz
+                </h1>
+                <p class="hero-subtitle">
+                    Transformo vidas a través de la sanación espiritual, la neuroespiritualidad y el desarrollo personal. Más de 2,000 personas han encontrado su camino conmigo.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#reto" class="btn-primary">🔥 Únete al Reto Renace</a>
+                    <a href="#quien-soy" class="btn-secondary">Conoce mi historia</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2K+</div>
+                        <div class="stat-label">Vidas transformadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Años de experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5★</div>
+                        <div class="stat-label">Valoración</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-image-decoration"></div>
+                <div class="hero-image-frame">
+                    <img src="https://drive.google.com/thumbnail?id=1WqT-1MhSPRIcRFCqVE2kDYI7MFBmXXXX&sz=w800" 
+                         alt="Karen Yoally" 
+                         onerror="this.style.background='linear-gradient(135deg, #C9A84C, #F0D080)'; this.style.minHeight='600px';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RETO RENACE - DESTACADO -->
+    <section id="reto">
+        <div class="reto-container">
+            <div class="reto-text">
+                <div class="reto-badge-launch">
+                    <i class="fas fa-fire"></i>
+                    🚀 Nuevo Lanzamiento
+                </div>
+                <h2 class="reto-title">
+                    Reto <span>Renace</span><br>en 5 Días
+                </h2>
+                <p class="reto-question">
+                    ¿Te sientes estancad@? ¿No llegan los resultados que deseas?<br>
+                    A veces NO es falta de esfuerzo...<br>
+                    Es que tu identidad está sosteniendo patrones viejos.
+                </p>
+
+                <div class="reto-problems">
+                    <div class="reto-problem">
+                        <i class="fas fa-circle"></i>
+                        Traumas que no se han sanado
+                    </div>
+                    <div class="reto-problem">
+                        <i class="fas fa-circle"></i>
+                        Lazos energéticos que te drenan
+                    </div>
+                    <div class="reto-problem">
+                        <i class="fas fa-circle"></i>
+                        Hábitos y pensamientos repetidos
+                    </div>
+                    <div class="reto-problem">
+                        <i class="fas fa-circle"></i>
+                        Una forma de actuar que ya no te pertenece
+                    </div>
+                </div>
+
+                <p style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">En RENACE trabajaremos con:</p>
+
+                <div class="reto-benefits">
+                    <div class="reto-benefit">
+                        <i class="fas fa-check-circle"></i>
+                        Sanación consciente
+                    </div>
+                    <div class="reto-benefit">
+                        <i class="fas fa-check-circle"></i>
+                        Conciencia + neuroplasticidad
+                    </div>
+                    <div class="reto-benefit">
+                        <i class="fas fa-check-circle"></i>
+                        Reprogramación de patrones
+                    </div>
+                    <div class="reto-benefit">
+                        <i class="fas fa-check-circle"></i>
+                        Guía al mundo espiritual (sin miedo, con claridad)
+                    </div>
+                </div>
+
+                <div class="reto-info-grid">
+                    <div class="reto-info-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Del 20 al 25 de julio</span>
+                    </div>
+                    <div class="reto-info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>7:00 - 8:00 PM CDMX</span>
+                    </div>
+                    <div class="reto-info-item">
+                        <i class="fas fa-laptop"></i>
+                        <span>Online</span>
+                    </div>
+                    <div class="reto-info-item">
+                        <i class="fas fa-users"></i>
+                        <span>Grupal · Hombres y Mujeres</span>
+                    </div>
+                </div>
+
+                <div class="reto-price-box">
+                    <div class="reto-price-label">✨ Precio de Lanzamiento</div>
+                    <div class="reto-price-current">
+                        <span class="precio-currency">$</span>333 <span style="font-size:1.2rem; color: var(--gold);">MXN</span>
+                    </div>
+                    <div class="reto-price-next">La próxima semana sube a $433 MXN</div>
+                    <div class="reto-price-urgency">⚡ ¡Solo por esta semana!</div>
+                    <br>
+                    <a href="https://mpago.la/1H3CcXi" target="_blank" class="btn-primary" style="display:inline-block; margin-top: 5px;">
+                        🔥 ¡Quiero mi lugar ahora!
+                    </a>
+                </div>
+            </div>
+
+            <div class="reto-image-side">
+                <div class="reto-floating-badge">
+                    <strong>5</strong>
+                    DÍAS<br>INTENSIVOS
+                </div>
+                <div class="reto-image-wrapper">
+                    <img src="https://drive.google.com/thumbnail?id=1cUbWbxgcdgq2gEyilEyAsfY50hlNx2gO&sz=w800" 
+                         alt="Reto Renace en 5 Días"
+                         onerror="this.style.background='linear-gradient(135deg, #C9A84C, #F0D080)'; this.style.minHeight='500px'; this.style.display='block';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIEN SOY -->
+    <section id="quien-soy">
+        <div class="quien-soy-container">
+            <div class="section-header">
+                <span class="section-tag">Mi Historia</span>
+                <h2 class="section-title">¿Quién es Karen Yoally?</h2>
+                <p class="section-subtitle">Un camino de transformación, despertar y servicio que comenzó desde el alma</p>
+            </div>
+
+            <!-- Bloque 1 -->
+            <div class="historia-block" data-scroll>
+                <div class="historia-text-wrapper">
+                    <div class="historia-number">01</div>
+                    <span class="historia-tag">El Don</span>
+                    <h3 class="historia-title">Desde niña, escuchaba lo que otros no podían oir</h3>
+                    <p class="historia-text">
+                        Desde pequeña percibía voces, mensajes y presencias que nadie más parecía notar. Era un don que cargaba en silencio, con miedo e incomprensión. Durante años lo oculté, sin saber que ese regalo era el inicio de una misión mucho más grande que yo misma.
+                    </p>
+                </div>
+                <div class="historia-image">
+                    <img src="https://drive.google.com/thumbnail?id=1WqT-1MhSPRIcRFCqVE2kDYI7MFBmXXXX&sz=w800" 
+                         alt="Karen Yoally - Infancia"
+                         onerror="this.src='https://via.placeholder.com/500x400/F5E6C8/C9A84C?text=Karen+Yoally'">
+                </div>
+            </div>
+
+            <!-- Bloque 2 -->
+            <div class="historia-block reverse" data-scroll>
+                <div class="historia-text-wrapper">
+                    <div class="historia-number">02</div>
+                    <span class="historia-tag">La Formación</span>
+                    <h3 class="historia-title">Preparándome para servir con excelencia</h3>
+                    <p class="historia-text">
+                        Me formé como mentora, guía espiritual y conferencista, combinando el conocimiento académico con la sabiduría espiritual. Estudié tanatología, neuroespiritualidad y herramientas de desarrollo personal para ofrecer un acompañamiento integral y transformador.
+                    </p>
+                </div>
+                <div class="historia-image">
+                    <img src="https://drive.google.com/thumbnail?id=1WqT-1MhSPRIcRFCqVE2kDYI7MFBmXXXX&sz=w800" 
+                         alt="Karen Yoally - Formación"
+                         onerror="this.src='https://via.placeholder.com/500x400/F5E6C8/C9A84C?text=Karen+Yoally'">
+                </div>
+            </div>
+
+            <!-- Bloque 3 -->
+            <div class="historia-block" data-scroll>
+                <div class="historia-text-wrapper">
+                    <div class="historia-number">03</div>
+                    <span class="historia-tag">El Quiebre</span>
+                    <h3 class="historia-title">A los 27 años, todo se derrumbó</h3>
+                    <p class="historia-text">
+                        Una enfermedad, un divorcio, la pérdida de mi trabajo y deudas que parecían no tener salida. Todo llegó al mismo tiempo. Fue el momento más oscuro de mi vida, pero también el más transformador. En medio del caos, recibí un mensaje que cambió todo: era el llamado que siempre había ignorado.
+                    </p>
+                </div>
+                <div class="historia-image">
+                    <img src="https://drive.google.com/thumbnail?id=1WqT-1MhSPRIcRFCqVE2kDYI7MFBmXXXX&sz=w800" 
+                         alt="Karen Yoally - El Quiebre"
+                         onerror="this.src='https://via.placeholder.com/500x400/F5E6C8/C9A84C?text=Karen+Yoally'">
+                </div>
+            </div>
+
+            <!-- Bloque 4 -->
+            <div class="historia-block reverse" data-scroll>
+                <div class="historia-text-wrapper">
+                    <div class="historia-number">04</div>
+                    <span class="historia-tag">La Transformación</span>
+                    <h3 class="historia-title">Del dolor al propósito</h3>
+                    <p class="historia-text">
+                        Decidí abrazar mi don, sanar mis heridas y convertir mi historia en un puente para otros. Aprendí que la oscuridad no viene a destruirnos, sino a revelarnos. Cada crisis fue una iniciación. Cada pérdida, un regalo disfrazado. Hoy sé que todo tenía sentido.
+                    </p>
+                </div>
+                <div class="historia-image">
+                    <img src="https://drive.google.com/thumbnail?id=1WqT-1MhSPRIcRFCqVE2kDYI7MFBmXXXX&sz=w800" 
+                         alt="Karen Yoally - Transformación"
+                         onerror="this.src='https://via.placeholder.com/500x400/F5E6C8/C9A84C?text=Karen+Yoally'">
+                </div>
+            </div>
+
+            <!-- Bloque 5 -->
+            <div class="historia-block" data-scroll>
+                <div class="historia-text-wrapper">
+                    <div class="historia-number">05</div>
+                    <span class="historia-tag">La Misión</span>
+                    <h3 class="historia-title">Hoy, mi vida es servir tu despertar</h3>
+                    <p class="historia-text">
+                        Con más de 10 años de experiencia y más de 2,000 personas acompañadas, hoy camino con claridad, abundancia y propósito. Mi misión es guiarte a conectar con tu esencia, sanar lo que te detiene y vivir la vida extraordinaria que mereces. Tu transformación es posible, y yo estaré contigo en cada paso.
+                    </p>
+                </div>
+                <div class="historia-image">
+                    <img src="https://drive.google.com/thumbnail?id=1WqT-1MhSPRIcRFCqVE2kDYI7MFBmXXXX&sz=w800" 
+                         alt="Karen Yoally - Misión"
+                         onerror="this.src='https://via.placeholder.com/500x400/F5E6C8/C9A84C?text=Karen+Yoally'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERAPIAS -->
+    <section id="terapias">
+        <div class="section-header">
+            <span class="section-tag">Sesiones Personalizadas</span>
+            <h2 class="section-title">Terapias 1 a 1</h2>
+            <p class="section-subtitle">Sesiones diseñadas especialmente para ti, con herramientas terapéuticas, espirituales y de desarrollo personal</p>
+        </div>
+        <div class="terapias-grid">
+            <div class="terapia-card">
+                <div class="terapia-icon"><i class="fas fa-dove"></i></div>
+                <h3 class="terapia-title">Sanación Angelical</h3>
+                <p class="terapia-desc">Conexión con la energía angelical para sanar heridas del alma, liberar bloqueos y restaurar tu campo energético en profundidad.</p>
+            </div>
+            <div class="terapia-card">
+                <div class="terapia-icon"><i class="fas fa-brain"></i></div>
+                <h3 class="terapia-title">Neuroespiritualidad</h3>
+                <p class="terapia-desc">Integración de neurociencia y espiritualidad para reprogramar patrones mentales limitantes y crear nuevas rutas neuronales de abundancia.</p>
+            </div>
+            <div class="terapia-card">
+                <div class="terapia-icon"><i class="fas fa-heart"></i></div>
+                <h3 class="terapia-title">Tanatología Espiritual</h3>
+                <p class="terapia-desc">Acompañamiento en procesos de duelo, pérdida y transición, desde una perspectiva espiritual profunda y compasiva.</p>
+            </div>
+            <div class="terapia-card">
+                <div class="terapia-icon"><i class="fas fa-spa"></i></div>
+                <h3 class="terapia-title">Meditación Guiada</h3>
+                <p class="terapia-desc">Sesiones de meditación personalizada para conectar con tu ser interior, reducir el estrés y elevar tu frecuencia vibratoria.</p>
+            </div>
+            <div class="terapia-card">
+                <div class="terapia-icon"><i class="fas fa-unlock"></i></div>
+                <h3 class="terapia-title">Liberación Emocional</h3>
+                <p class="terapia-desc">Técnicas avanzadas para liberar emociones atrapadas, traumas y patrones que impiden tu crecimiento y bienestar.</p>
+            </div>
+            <div class="terapia-card">
+                <div class="terapia-icon"><i class="fas fa-star"></i></div>
+                <h3 class="terapia-title">Canalización Espiritual</h3>
+                <p class="terapia-desc">Recepción de mensajes y guía del plano espiritual para orientarte en tu camino, decisiones y propósito de vida.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CURSOS Y MENTORIAS -->
+    <section id="cursos">
+        <div class="section-header">
+            <span class="section-tag">Programas de Transformación</span>
+            <h2 class="section-title">Cursos & Mentorías</h2>
+            <p class="section-subtitle">Programas diseñados para llevarte de donde estás a donde quieres estar</p>
+        </div>
+        <div class="cursos-grid">
+            <div class="curso-card">
+                <span class="curso-tag">🔥 Nuevo Lanzamiento</span>
+                <h3 class="curso-title">Reto Renace en 5 Días</h3>
+                <p class="curso-desc">Transforma tu identidad, sana patrones viejos y despierta a una nueva versión de ti en solo 5 días intensivos de trabajo espiritual y neurológico.</p>
+                <div class="curso-price">$333 MXN</div>
+                <a href="https://mpago.la/1H3CcXi" target="_blank" class="btn-primary">¡Inscríbete Ahora!</a>
+            </div>
+            <div class="curso-card">
+                <span class="curso-tag">💎 Alta Transformación</span>
+                <h3 class="curso-title">Líder de Alto Valor</h3>
+                <p class="curso-desc">Mentoría de alto impacto para líderes que desean elevar su presencia, autoridad y resultados desde un lugar de autenticidad y poder espiritual.</p>
+                <div class="curso-price">$30,000 MXN</div>
+                <a href="#contacto" class="btn-primary">Solicitar Información</a>
+            </div>
+            <div class="curso-card">
+                <span class="curso-tag">🎤 Conferencistas</span>
+                <h3 class="curso-title">Speaker de Alto Impacto</h3>
+                <p class="curso-desc">Desarrolla tu voz, tu mensaje y tu presencia escénica para convertirte en un conferencista que transforma audiencias desde el corazón.</p>
+                <div class="curso-price">$20,000 MXN</div>
+                <a href="#contacto" class="btn-primary">Solicitar Información</a>
+            </div>
+            <div class="curso-card">
+                <span class="curso-tag">✨ Desarrollo Personal</span>
+                <h3 class="curso-title">Próximos Programas</h3>
+                <p class="curso-desc">Nuevos cursos y programas grupales en camino. Únete a la lista de espera y sé el primero en conocer las fechas y precios especiales de lanzamiento.</p>
+                <div class="curso-price" style="font-size: 1.2rem;">¡Próximamente!</div>
+                <a href="#contacto" class="btn-primary">Únete a la Lista</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section id="precios">
+        <div class="section-header">
+            <span class="section-tag">Inversión en ti</span>
+            <h2 class="section-title">Terapias 1 a 1 · Precios</h2>
+            <p class="section-subtitle">Elige el paquete que mejor se adapte a tu proceso de transformación</p>
+        </div>
+
+        <div class="precios-grid">
+            <div class="precio-card">
+                <div class="precio-sessions">Sesión Individual</div>
+                <div class="precio-amount"><span class="precio-currency">$</span>1,900</div>
+                <div class="precio-desc">MXN · 1 sesión personalizada</div>
+                <a href="#agenda" class="btn-primary" style="font-size:0.8rem; padding: 12px 24px;">Agendar</a>
+            </div>
+            <div class="precio-card">
+                <div class="precio-sessions">4 Sesiones</div>
+                <div class="precio-amount"><span class="precio-currency">$</span>6,840</div>
+                <div class="precio-desc">MXN · Paquete de 4 sesiones</div>
+                <div class="precio-discount">10% de descuento</div>
+                <a href="#agenda" class="btn-primary" style="font-size:0.8rem; padding: 12px 24px;">Agendar</a>
+            </div>
+            <div class="precio-card featured">
+                <div class="precio-badge">⭐ Más Popular</div>
+                <div class="precio-sessions">7 Sesiones</div>
+                <div class="precio-amount"><span class="precio-currency">$</span>11,970</div>
+                <div class="precio-desc">MXN · Paquete de 7 sesiones</div>
+                <div class="precio-discount">10% de descuento</div>
+                <a href="#agenda" class="btn-primary" style="font-size:0.8rem; padding: 12px 24px;">Agendar</a>
+            </div>
+            <div class="precio-card">
+                <div class="precio-sessions">16 Sesiones</div>
+                <div class="precio-amount"><span class="precio-currency">$</span>27,360</div>
+                <div class="precio-desc">MXN · Transformación completa</div>
+                <div class="precio-discount">10% de descuento</div>
+                <a href="#agenda" class="btn-primary" style="font-size:0.8rem; padding: 12px 24px;">Agendar</a>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 80px; margin-bottom: 40px;">
+            <span class="section-tag" style="color: var(--gold-light);">Alto Impacto</span>
+            <h3 class="section-title" style="font-size: 2rem;">Mentorías Premium</h3>
+        </div>
+
+        <div class="mentorias-grid">
+            <div class="mentoria-card">
+                <div class="mentoria-icon">👑</div>
+                <h3 class="mentoria-title">Líder de Alto Valor</h3>
+                <p class="mentoria-desc">Mentoría de alto impacto para líderes que desean elevar su presencia, autoridad y resultados desde la autenticidad y el poder espiritual.</p>
+                <div class="mentoria-price">$30,000 MXN</div>
+                <a href="#contacto" class="btn-primary">Solicitar Información</a>
+            </div>
+            <div class="mentoria-card">
+                <div class="mentoria-icon">🎤</div>
+                <h3 class="mentoria-title">Speaker de Alto Impacto</h3>
+                <p class="mentoria-desc">Desarrolla tu voz, tu mensaje y tu presencia escénica. Conviértete en un conferencista que transforma audiencias desde el corazón.</p>
+                <div class="mentoria-price">$20,000 MXN</div>
+                <a href="#contacto" class="btn-primary">Solicitar Información</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDA -->
+    <section id="agenda">
+        <div class="section-header">
+            <span class="section-tag">Reserva tu Sesión</span>
+            <h2 class="section-title">Agenda tu Cita</h2>
+            <p class="section-subtitle">Elige el día y horario que mejor se adapte a ti</p>
+        </div>
+        <div class="calendly-wrapper">
+            <iframe src="https://calendly.com/karen-gonzalez-ramirez" 
+                    width="100%" 
+                    height="700" 
+                    frameborder="0"
+                    style="border: none;">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="section-header">
+            <span class="section-tag">Hablemos</span>
+            <h2 class="section-title">¿Lista para Transformar tu Vida?</h2>
+            <p class="section-subtitle">Escríbeme y con gusto te orientaré en el camino que mejor se adapte a ti</p>
+        </div>
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h3>Conectemos</h3>
+                <div class="contacto-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="contacto-item-text">
+                        <strong>WhatsApp</strong>
+                        <a href="https://wa.me/5215580987380" target="_blank" style="color: var(--gray); text-decoration: none;">+52 55 8098 7380</a>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contacto-item-text">
+                        <strong>Correo Electrónico</strong>
+                        <a href="mailto:karen.gonzalez.ramirez@gmail.com" style="color: var(--gray); text-decoration: none;">karen.gonzalez.ramirez@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contacto-item-text">
+                        <strong>Ubicación</strong>
+                        Ciudad de México · Sesiones Online
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <i class="fab fa-instagram"></i>
+                    <div class="contacto-item-text">
+                        <strong>Instagram</strong>
+                        @karenyoally
+                    </div>
+                </div>
+            </div>
+
+            <div class="contacto-form">
+                <form action="https://formspree.io/f/xojoynbv" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" name="telefono" placeholder="Tu número">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Qué te interesa?</label>
+                        <select name="servicio">
+                            <option value="">Selecciona una opción</option>
+                            <option value="reto">🔥 Reto Renace en 5 Días</option>
+                            <option value="terapia-individual">Sesión Individual</option>
+                            <option value="paquete-4">Paquete 4 Sesiones</option>
+                            <option value="paquete-7">Paquete 7 Sesiones</option>
+                            <option value="paquete-16">Paquete 16 Sesiones</option>
+                            <option value="mentoria-lider">Mentoría Líder de Alto Valor</option>
+                            <option value="mentoria-speaker">Mentoría Speaker de Alto Impacto</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje</label>
+                        <textarea name="mensaje" placeholder="Cuéntame cómo puedo ayudarte..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; font-size: 1rem; padding: 18px;">
+                        ✨ Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="nav-logo">Karen Yoally</span>
+                <p>Mentora espiritual, guía de almas y conferencista comprometida con tu transformación. Más de 2,000 vidas tocadas con amor, propósito y abundancia.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/5215580987380" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#reto">Reto Renace</a></li>
+                    <li><a href="#terapias">Terapias 1 a 1</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#precios">Mentorías Premium</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Accesos</h4>
+                <ul>
+                    <li><a href="#quien-soy">Mi Historia</a></li>
+                    <li><a href="#agenda">Agendar Sesión</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="https://mpago.la/1H3CcXi" target="_blank">Pagar Reto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 <span>Karen Yoally</span> · Todos los derechos reservados</p>
+            <p>Hecho con <span>💛</span> para transformar vidas</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5215580987380" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // NAVBAR SCROLL
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // HAMBURGER MENU
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'fixed';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.background = 'rgba(255,255,255,0.98)';
+            navLinks.style.padding = '30px';
+            navLinks.style.gap = '20px';
+            navLinks.style.backdropFilter = 'blur(20px)';
+            navLinks.style.borderBottom = '1px solid rgba(201,168,76,0.2)';
+            navLinks.style.zIndex = '999';
+        }
+
+        // PARTICLES
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                particle.style.animationDelay = (Math.random() * 10) + 's';
+                particle.style.width = (Math.random() * 3 + 1) + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // SCROLL ANIMATIONS
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-scroll]').forEach(el => {
+            observer.observe(el);
+        });
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const navLinks = document.querySelector('.nav-links');
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
