@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Yoally | Mentora Espiritual & Conferencista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #C9A84C;
+            --gold-light: #E8D5A3;
+            --gold-dark: #9A7B3C;
+            --white: #FFFFFF;
+            --cream: #FDF8F0;
+            --dark: #1A1A2E;
+            --purple-dark: #16213E;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVEGACIÓN ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 40px 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            width: 100%;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-text p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--white);
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(201,168,76,0.4);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201,168,76,0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            padding: 16px 35px;
+            border: 2px solid var(--gold);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            width: 420px;
+            height: 520px;
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--white);
+            padding: 20px 25px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 3;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-badge .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .hero-badge .text {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== DIVISOR DORADO ===== */
+        .divider {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--dark);
+        }
+
+        .divider-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .divider-line::before,
+        .divider-line::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold));
+        }
+
+        .divider-line::after {
+            background: linear-gradient(to left, transparent, var(--gold));
+        }
+
+        .divider-icon {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            background: var(--dark);
+            padding: 60px 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-item .label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* ===== SECCIÓN QUIÉN SOY ===== */
+        .quien-soy {
+            padding: 100px 40px;
+            background: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .section-title span { color: var(--gold); font-style: italic; }
+
+        .section-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(to right, var(--gold), var(--gold-light));
+            margin: 0 auto;
+        }
+
+        .quien-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .quien-image {
+            position: relative;
+        }
+
+        .quien-image-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .quien-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+            border-radius: 22px;
+            z-index: -1;
+        }
+
+        .quien-image-frame img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .quien-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .quien-text p {
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .credenciales {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .credencial-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 18px;
+            background: white;
+            border-radius: 10px;
+            border-left: 3px solid var(--gold);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .credencial-item i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .credencial-item span {
+            font-size: 0.9rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* ===== HISTORIA ===== */
+        .historia {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--purple-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .historia::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .historia-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .historia-text .section-title { color: var(--white); }
+
+        .historia-text p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .historia-quote {
+            border-left: 3px solid var(--gold);
+            padding: 20px 25px;
+            margin: 30px 0;
+            background: rgba(201,168,76,0.1);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .historia-quote p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--gold-light) !important;
+            margin: 0 !important;
+        }
+
+        .historia-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .historia-img-frame {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .historia-img-frame::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--gold), transparent);
+            border-radius: 17px;
+            z-index: 0;
+        }
+
+        .historia-img-frame img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        .historia-img-frame.tall img { height: 380px; }
+
+        /* ===== FORMACIÓN ===== */
+        .formacion {
+            padding: 100px 40px;
+            background: var(--cream);
+        }
+
+        .formacion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .formacion-img-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .formacion-img-frame::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+            border-radius: 22px;
+            z-index: 0;
+        }
+
+        .formacion-img-frame img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        .formacion-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .formacion-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .formacion-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .formacion-item:hover { transform: translateX(5px); }
+
+        .formacion-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .formacion-icon i { color: white; font-size: 1.2rem; }
+
+        .formacion-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .formacion-info p {
+            color: #777;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== TERAPIAS ===== */
+        .terapias {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--dark), var(--purple-dark));
+        }
+
+        .terapias .section-title { color: var(--white); }
+        .terapias .section-tag { color: var(--gold); }
+
+        .terapias-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .terapia-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terapia-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--gold-light));
+        }
+
+        .terapia-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            background: rgba(201,168,76,0.1);
+        }
+
+        .terapia-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .terapia-icon i { color: white; font-size: 1.8rem; }
+
+        .terapia-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .terapia-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ===== RETO RENACE ===== */
+        .reto {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #0D0D1A 0%, #1A0A2E 50%, #0D1A2E 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reto::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .reto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .reto-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .reto-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .reto-title span { color: var(--gold); font-style: italic; }
+
+        .reto-desc {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .reto-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .reto-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .reto-feature i { color: var(--gold); }
+
+        .reto-price-box {
+            background: rgba(201,168,76,0.1);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .reto-price-box .price-label {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+        }
+
+        .reto-price-box .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .reto-price-box .price-currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .reto-price-box .price-note {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .reto-image-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .reto-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+            border-radius: 22px;
+            z-index: 0;
+        }
+
+        .reto-image-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        /* ===== CURSOS ===== */
+        .cursos {
+            padding: 100px 40px;
+            background: var(--cream);
+        }
+
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .curso-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .curso-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .curso-header {
+            background: linear-gradient(135deg, var(--dark), var(--purple-dark));
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .curso-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--gold-light));
+        }
+
+        .curso-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .curso-icon i { color: white; font-size: 1.5rem; }
+
+        .curso-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .curso-body {
+            padding: 30px;
+        }
+
+        .curso-body p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .curso-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .curso-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            font-size: 0.85rem;
+            padding: 5px 0;
+        }
+
+        .curso-features li i { color: var(--gold); font-size: 0.8rem; }
+
+        /* ===== PRECIOS ===== */
+        .precios {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--dark), var(--purple-dark));
+        }
+
+        .precios .section-title { color: var(--white); }
+
+        .precios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .precio-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .precio-card.featured {
+            background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.05));
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .precio-card:hover { transform: translateY(-5px); }
+        .precio-card.featured:hover { transform: scale(1.05) translateY(-5px); }
+
+        .precio-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .precio-nombre {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .precio-monto {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .precio-periodo {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+        }
+
+        .precio-lista {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .precio-lista li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .precio-lista li i { color: var(--gold); }
+
+        /* ===== TESTIMONIOS ===== */
+        .testimonios {
+            padding: 100px 40px;
+            background: var(--cream);
+        }
+
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonio-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .testimonio-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonio-stars {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .testimonio-text {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonio-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonio-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .testimonio-name {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .testimonio-location {
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        /* ===== AGENDA / CALENDLY ===== */
+        .agenda {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--dark), var(--purple-dark));
+            text-align: center;
+        }
+
+        .agenda .section-title { color: var(--white); }
+
+        .agenda-desc {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        .calendly-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(201,168,76,0.3);
+        }
+
+        /* ===== CONTACTO ===== */
+        .contacto {
+            padding: 100px 40px;
+            background: var(--cream);
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contacto-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .contacto-info p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .contacto-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .contacto-item-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contacto-item-icon i { color: white; font-size: 1.1rem; }
+
+        .contacto-item-text .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+        }
+
+        .contacto-item-text .value {
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .contacto-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Lato', sans-serif;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .form-group textarea { height: 120px; resize: vertical; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            padding: 60px 40px 30px;
+            border-top: 1px solid rgba(201,168,76,0.3);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-brand .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(201,168,76,0.2);
+            border: 1px solid rgba(201,168,76,0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .footer-links h4 {
+            color: var(--gold);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links ul a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-image { order: -1; }
+            .hero-image-frame { width: 280px; height: 350px; }
+            .hero-buttons { justify-content: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .quien-grid, .historia-grid, .formacion-grid, .reto-grid, .contacto-grid { grid-template-columns: 1fr; }
+            .terapias-grid, .cursos-grid, .precios-grid, .testimonios-grid { grid-template-columns: 1fr; }
+            .historia-images { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .precio-card.featured { transform: scale(1); }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVEGACIÓN -->
+<nav>
+    <div class="nav-logo">Karen Yoally</div>
+    <ul class="nav-links">
+        <li><a href="#quien-soy">Quién Soy</a></li>
+        <li><a href="#terapias">Terapias</a></li>
+        <li><a href="#reto">Reto Renace</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <p class="subtitle">✦ Mentora Espiritual & Conferencista ✦</p>
+            <h1>Conecta con tu <span>propósito</span>, vive con abundancia</h1>
+            <p>Encuentra la paz que siempre buscaste. Más de 10 años transformando vidas con amor, sabiduría y herramientas poderosas.</p>
+            <div class="hero-buttons">
+                <a href="#reto" class="btn-gold">🔥 Únete al Reto Renace</a>
+                <a href="#agenda" class="btn-outline">📅 Agenda tu Sesión</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-frame">
+                <img src="img/karen-principal.jpg" alt="Karen Yoally">
+                <div class="hero-badge">
+                    <span class="number">2K+</span>
+                    <span class="text">Vidas Transformadas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+    <div class="divider" style="padding: 0 0 40px 0; background: transparent;">
+        <div class="divider-line">
+            <span class="divider-icon">✦</span>
+        </div>
+    </div>
+    <div class="stats-grid">
+        <div class="stat-item">
+            <span class="number">10+</span>
+            <span class="label">Años de Experiencia</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">2,000+</span>
+            <span class="label">Personas Transformadas</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">5+</span>
+            <span class="label">Programas Especializados</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">100%</span>
+            <span class="label">Compromiso Contigo</span>
+        </div>
+    </div>
+</section>
+
+<!-- QUIÉN SOY -->
+<section class="quien-soy" id="quien-soy">
+    <div class="section-header">
+        <span class="section-tag">✦ Mi Historia ✦</span>
+        <h2 class="section-title">¿Quién es <span>Karen Yoally?</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="quien-grid">
+        <div class="quien-image">
+            <div class="quien-image-frame">
+                <img src="img/karen-quien-soy.jpg" alt="Karen Yoally - Quién Soy">
+            </div>
+        </div>
+        <div class="quien-text">
+            <h3>Abogada, Mentora & Guía Espiritual</h3>
+            <p>Soy Karen Yoally, abogada por la UNAM, mentora, guía espiritual, canalizadora, tanatóloga espiritual y conferencista con más de <strong>10 años de experiencia</strong> acompañando a personas en su proceso de transformación.</p>
+            <p>Mi misión es ayudarte a reconectar con tu esencia, sanar tus heridas del pasado y construir una vida con propósito, paz y abundancia.</p>
+            <p>He tenido el honor de acompañar a <strong>más de 2,000 personas</strong> en su camino de sanación y crecimiento personal.</p>
+            <div class="credenciales">
+                <div class="credencial-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Abogada por la UNAM</span>
+                </div>
+                <div class="credencial-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Tanatóloga Espiritual Certificada</span>
+                </div>
+                <div class="credencial-item">
+                    <i class="fas fa-star"></i>
+                    <span>Mentora & Guía Espiritual</span>
+                </div>
+                <div class="credencial-item">
+                    <i class="fas fa-microphone"></i>
+                    <span>Conferencista Internacional</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HISTORIA: EL QUIEBRE -->
+<section class="historia" id="historia">
+    <div class="historia-grid">
+        <div class="historia-text">
+            <span class="section-tag">✦ Mi Transformación ✦</span>
+            <h2 class="section-title">Del <span style="color: var(--gold); font-style: italic;">Quiebre</span><br>al Propósito</h2>
+            <div class="section-divider" style="margin: 20px 0;"></div>
+            <p>Hubo un momento en mi vida donde todo se derrumbó. Pensé que no había salida, que el dolor sería eterno. Pero ese quiebre fue el inicio de mi mayor transformación.</p>
+            <p>Fue en ese momento oscuro donde descubrí herramientas poderosas que me ayudaron a sanar, a reconectar con mi propósito y a construir la vida que hoy tengo.</p>
+            <div class="historia-quote">
+                <p>"El dolor que no se transforma, se transmite. Yo elegí transformarlo."</p>
+            </div>
+            <p>Hoy, cada persona que acompaño es un recordatorio de por qué elegí este camino. Tu historia puede cambiar, igual que cambió la mía.</p>
+            <a href="#agenda" class="btn-gold" style="margin-top: 20px; display: inline-block;">Quiero mi transformación</a>
+        </div>
+        <div class="historia-images">
+            <div class="historia-img-frame tall">
+                <img src="img/karen-quiebre.jpg" alt="Karen Yoally - El Quiebre">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="historia-img-frame">
+                    <img src="img/karen-proposito.jpg" alt="Karen Yoally - Del Dolor al Propósito">
+                </div>
+                <div style="background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-radius: 15px; padding: 25px; text-align: center;">
+                    <p style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: white; font-style: italic;">"Brilla con toda tu luz"</p>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-top: 8px;">— Karen Yoally</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMACIÓN -->
+<section class="formacion" id="formacion">
+    <div class="section-header">
+        <span class="section-tag">✦ Mi Trayectoria ✦</span>
+        <h2 class="section-title">Formación & <span>Experiencia</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="formacion-grid">
+        <div style="position: relative;">
+            <div class="formacion-img-frame">
+                <img src="img/karen-formacion.jpg" alt="Karen Yoally - Conferencista">
+            </div>
+            <div class="formacion-label">Tec de Monterrey</div>
+        </div>
+        <div>
+            <div class="formacion-items">
+                <div class="formacion-item">
+                    <div class="formacion-icon"><i class="fas fa-university"></i></div>
+                    <div class="formacion-info">
+                        <h4>Licenciatura en Derecho — UNAM</h4>
+                        <p>Formación jurídica sólida que complementa su enfoque integral en el acompañamiento personal.</p>
+                    </div>
+                </div>
+                <div class="formacion-item">
+                    <div class="formacion-icon"><i class="fas fa-heart-pulse"></i></div>
+                    <div class="formacion-info">
+                        <h4>Tanatología Espiritual</h4>
+                        <p>Especialización en acompañamiento en procesos de duelo, pérdida y transformación.</p>
+                    </div>
+                </div>
+                <div class="formacion-item">
+                    <div class="formacion-icon"><i class="fas fa-star"></i></div>
+                    <div class="formacion-info">
+                        <h4>Guía Espiritual & Canalizadora</h4>
+                        <p>Certificación en canalización y guía espiritual para el acompañamiento de almas.</p>
+                    </div>
+                </div>
+                <div class="formacion-item">
+                    <div class="formacion-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <div class="formacion-info">
+                        <h4>Conferencista Internacional</h4>
+                        <p>Presencia en escenarios como el Tecnológico de Monterrey y eventos internacionales.</p>
+                    </div>
+                </div>
+                <div class="formacion-item">
+                    <div class="formacion-icon"><i class="fas fa-users"></i></div>
+                    <div class="formacion-info">
+                        <h4>Mentora de Vida</h4>
+                        <p>Más de 10 años acompañando a personas en su transformación personal y espiritual.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TERAPIAS -->
+<section class="terapias" id="terapias">
+    <div class="section-header">
+        <span class="section-tag">✦ Mis Servicios ✦</span>
+        <h2 class="section-title" style="color: white;">Terapias & <span>Acompañamiento</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="terapias-grid">
+        <div class="terapia-card">
+            <div class="terapia-icon"><i class="fas fa-heart"></i></div>
+            <h3>Terapia de Sanación Emocional</h3>
+            <p>Libera bloqueos emocionales, sana heridas del pasado y reconecta con tu paz interior a través de técnicas integrativas.</p>
+        </div>
+        <div class="terapia-card">
+            <div class="terapia-icon"><i class="fas fa-star"></i></div>
+            <h3>Guía Espiritual & Canalización</h3>
+            <p>Sesiones de canalización para conectar con tu guía interior, recibir mensajes y claridad sobre tu camino de vida.</p>
+        </div>
+        <div class="terapia-card">
+            <div class="terapia-icon"><i class="fas fa-leaf"></i></div>
+            <h3>Tanatología Espiritual</h3>
+            <p>Acompañamiento amoroso en procesos de duelo, pérdida y transición hacia una nueva etapa de vida.</p>
+        </div>
+        <div class="terapia-card">
+            <div class="terapia-icon"><i class="fas fa-brain"></i></div>
+            <h3>Reprogramación Mental</h3>
+            <p>Transforma creencias limitantes, patrones negativos y programaciones del subconsciente que te impiden avanzar.</p>
+        </div>
+        <div class="terapia-card">
+            <div class="terapia-icon"><i class="fas fa-gem"></i></div>
+            <h3>Mentoría de Vida</h3>
+            <p>Acompañamiento personalizado para definir tu propósito, crear un plan de vida y alcanzar tus metas con claridad.</p>
+        </div>
+        <div class="terapia-card">
+            <div class="terapia-icon"><i class="fas fa-infinity"></i></div>
+            <h3>Abundancia & Manifestación</h3>
+            <p>Aprende a alinear tu energía, eliminar bloqueos de abundancia y manifestar la vida que mereces.</p>
+        </div>
+    </div>
+</section>
+
+<!-- RETO RENACE -->
+<section class="reto" id="reto">
+    <div class="reto-grid">
+        <div>
+            <span class="reto-badge">🔥 Programa Especial</span>
+            <h2 class="reto-title">Reto <span>Renace</span><br>en 5 Días</h2>
+            <p class="reto-desc">¿Te sientes estancad@? ¿Quieres soltar el pasado, sanar y volver a ti con paz, propósito y abundancia? Este reto es para ti.</p>
+            <div class="reto-features">
+                <div class="reto-feature"><i class="fas fa-calendar"></i> Del 20 al 25 de Julio</div>
+                <div class="reto-feature"><i class="fas fa-clock"></i> 1 hora al día</div>
+                <div class="reto-feature"><i class="fas fa-laptop"></i> 100% Online</div>
+                <div class="reto-feature"><i class="fas fa-users"></i> Grupal: Hombres y Mujeres</div>
+                <div class="reto-feature"><i class="fas fa-heart"></i> Sana mente, cuerpo y emociones</div>
+                <div class="reto-feature"><i class="fas fa-star"></i> Descubre tu propósito</div>
+                <div class="reto-feature"><i class="fas fa-bolt"></i> Toma acción con claridad</div>
+                <div class="reto-feature"><i class="fas fa-gem"></i> Manifiesta abundancia</div>
+            </div>
+            <div class="reto-price-box">
+                <p class="price-label">Inversión por esta semana</p>
+                <div class="price">
+                    <span class="price-currency">$</span>333
+                    <span style="font-size: 1.5rem; color: rgba(201,168,76,0.8);"> MXN</span>
+                </div>
+                <p class="price-note">⚡ Precio especial de lanzamiento — Después subirá</p>
+            </div>
+            <a href="https://mpago.la/1H3CcXi" target="_blank" class="btn-gold" style="width: 100%; text-align: center; display: block; font-size: 1.1rem; padding: 18px;">
+                🔥 ¡QUIERO UNIRME AL RETO!
+            </a>
+        </div>
+        <div class="reto-image-frame">
+            <img src="img/reto-renace.jpg" alt="Reto Renace en 5 Días - Karen Yoally">
+        </div>
+    </div>
+</section>
+
+<!-- CURSOS Y MENTORÍAS -->
+<section class="cursos" id="cursos">
+    <div class="section-header">
+        <span class="section-tag">✦ Programas ✦</span>
+        <h2 class="section-title">Cursos & <span>Mentorías</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="cursos-grid">
+        <div class="curso-card">
+            <div class="curso-header">
+                <div class="curso-icon"><i class="fas fa-heart"></i></div>
+                <h3>Sanación Emocional Profunda</h3>
+            </div>
+            <div class="curso-body">
+                <p>Programa intensivo de 4 semanas para liberar bloqueos emocionales y reconectar con tu paz interior.</p>
+                <ul class="curso-features">
+                    <li><i class="fas fa-check"></i> 8 sesiones en vivo</li>
+                    <li><i class="fas fa-check"></i> Material descargable</li>
+                    <li><i class="fas fa-check"></i> Comunidad privada</li>
+                    <li><i class="fas fa-check"></i> Seguimiento personalizado</li>
+                </ul>
+                <a href="#agenda" class="btn-gold" style="width: 100%; text-align: center; display: block;">Más Información</a>
+            </div>
+        </div>
+        <div class="curso-card">
+            <div class="curso-header">
+                <div class="curso-icon"><i class="fas fa-star"></i></div>
+                <h3>Mentoría 1:1 Transformación Total</h3>
+            </div>
+            <div class="curso-body">
+                <p>Acompañamiento personalizado de 3 meses para transformar tu vida en todas las áreas con guía directa de Karen.</p>
+                <ul class="curso-features">
+                    <li><i class="fas fa-check"></i> Sesiones semanales 1:1</li>
+                    <li><i class="fas fa-check"></i> Plan personalizado</li>
+                    <li><i class="fas fa-check"></i> Acceso directo por WhatsApp</li>
+                    <li><i class="fas fa-check"></i> Recursos exclusivos</li>
+                </ul>
+                <a href="#agenda" class="btn-gold" style="width: 100%; text-align: center; display: block;">Más Información</a>
+            </div>
+        </div>
+        <div class="curso-card">
+            <div class="curso-header">
+                <div class="curso-icon"><i class="fas fa-gem"></i></div>
+                <h3>Programa Abundancia & Propósito</h3>
+            </div>
+            <div class="curso-body">
+                <p>Curso online para descubrir tu propósito de vida, eliminar bloqueos de abundancia y manifestar tus sueños.</p>
+                <ul class="curso-features">
+                    <li><i class="fas fa-check"></i> Acceso de por vida</li>
+                    <li><i class="fas fa-check"></i> Videos y meditaciones</li>
+                    <li><i class="fas fa-check"></i> Ejercicios prácticos</li>
+                    <li><i class="fas fa-check"></i> Certificado de participación</li>
+                </ul>
+                <a href="#agenda" class="btn-gold" style="width: 100%; text-align: center; display: block;">Más Información</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRECIOS -->
+<section class="precios" id="precios">
+    <div class="section-header">
+        <span class="section-tag">✦ Inversión ✦</span>
+        <h2 class="section-title" style="color: white;">Elige tu <span>Plan</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="precios-grid">
+        <div class="precio-card">
+            <p class="precio-nombre">Sesión Individual</p>
+            <p class="precio-monto">$800</p>
+            <p class="precio-periodo">MXN / sesión</p>
+            <ul class="precio-lista">
+                <li><i class="fas fa-check"></i> 1 sesión de 60 min</li>
+                <li><i class="fas fa-check"></i> Terapia personalizada</li>
+                <li><i class="fas fa-check"></i> Seguimiento por 48 hrs</li>
+                <li><i class="fas fa-check"></i> Recursos adicionales</li>
+            </ul>
+            <a href="#agenda" class="btn-outline" style="width: 100%; text-align: center; display: block;">Agendar Sesión</a>
+        </div>
+        <div class="precio-card featured">
+            <div class="precio-badge">⭐ MÁS POPULAR</div>
+            <p class="precio-nombre">Paquete Transformación</p>
+            <p class="precio-monto">$2,500</p>
+            <p class="precio-periodo">MXN / 4 sesiones</p>
+            <ul class="precio-lista">
+                <li><i class="fas fa-check"></i> 4 sesiones de 60 min</li>
+                <li><i class="fas fa-check"></i> Plan personalizado</li>
+                <li><i class="fas fa-check"></i> Seguimiento continuo</li>
+                <li><i class="fas fa-check"></i> Recursos exclusivos</li>
+                <li><i class="fas fa-check"></i> Acceso a comunidad</li>
+            </ul>
+            <a href="#agenda" class="btn-gold" style="width: 100%; text-align: center; display: block;">Comenzar Ahora</a>
+        </div>
+        <div class="precio-card">
+            <p class="precio-nombre">Mentoría Premium</p>
+            <p class="precio-monto">$6,500</p>
+            <p class="precio-periodo">MXN / mes</p>
+            <ul class="precio-lista">
+                <li><i class="fas fa-check"></i> Sesiones semanales</li>
+                <li><i class="fas fa-check"></i> Acceso directo WhatsApp</li>
+                <li><i class="fas fa-check"></i> Plan de vida completo</li>
+                <li><i class="fas fa-check"></i> Todos los recursos</li>
+                <li><i class="fas fa-check"></i> Prioridad de agenda</li>
+            </ul>
+            <a href="#agenda" class="btn-outline" style="width: 100%; text-align: center; display: block;">Quiero este Plan</a>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+    <div class="section-header">
+        <span class="section-tag">✦ Testimonios ✦</span>
+        <h2 class="section-title">Lo que dicen mis <span>Alumnas</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="testimonios-grid">
+        <div class="testimonio-card">
+            <div class="testimonio-stars">★★★★★</div>
+            <p class="testimonio-text">"Karen cambió mi vida por completo. Llegué rota y sin esperanza, y hoy me siento libre, plena y con un propósito claro. Su acompañamiento es mágico y profundo."</p>
+            <div class="testimonio-author">
+                <div class="testimonio-avatar">M</div>
+                <div>
+                    <p class="testimonio-name">María G.</p>
+                    <p class="testimonio-location">Ciudad de México</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonio-card">
+            <div class="testimonio-stars">★★★★★</div>
+            <p class="testimonio-text">"Después de la mentoría con Karen, tomé decisiones que jamás hubiera tomado. Me ayudó a ver mi valor, a soltar el miedo y a construir la vida que siempre soñé."</p>
+            <div class="testimonio-author">
+                <div class="testimonio-avatar">A</div>
+                <div>
+                    <p class="testimonio-name">Alejandra R.</p>
+                    <p class="testimonio-location">Guadalajara, Jalisco</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonio-card">
+            <div class="testimonio-stars">★★★★★</div>
+            <p class="testimonio-text">"El Reto Renace fue una experiencia transformadora. En solo 5 días sentí un cambio enorme en mi energía, mi claridad y mi conexión con mi propósito. ¡Vale cada peso!"</p>
+            <div class="testimonio-author">
+                <div class="testimonio-avatar">L</div>
+                <div>
+                    <p class="testimonio-name">Laura M.</p>
+                    <p class="testimonio-location">Monterrey, N.L.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AGENDA / CALENDLY -->
+<section class="agenda" id="agenda">
+    <div class="section-header">
+        <span class="section-tag">✦ Reserva tu Espacio ✦</span>
+        <h2 class="section-title" style="color: white;">Agenda tu <span>Sesión</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <p class="agenda-desc">Da el primer paso hacia tu transformación. Elige el horario que mejor se adapte a ti y comencemos juntas este hermoso camino.</p>
+    <div class="calendly-container">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/karen-gonzalez-ramirez" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+    <div class="section-header">
+        <span class="section-tag">✦ Hablemos ✦</span>
+        <h2 class="section-title">¿Tienes <span>Preguntas?</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <div class="contacto-grid">
+        <div class="contacto-info">
+            <h3>Estoy aquí para acompañarte</h3>
+            <p>Si tienes dudas sobre mis servicios, programas o simplemente quieres saber más sobre cómo puedo ayudarte, escríbeme. Con gusto te respondo.</p>
+            <div class="contacto-items">
+                <div class="contacto-item">
+                    <div class="contacto-item-icon"><i class="fab fa-instagram"></i></div>
+                    <div class="contacto-item-text">
+                        <p class="label">Instagram</p>
+                        <p class="value">@karenyoally</p>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <div class="contacto-item-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="contacto-item-text">
+                        <p class="label">WhatsApp</p>
+                        <p class="value">Contáctame por mensaje</p>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <div class="contacto-item-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contacto-item-text">
+                        <p class="label">Email</p>
+                        <p class="value">karen@karenyoally.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contacto-form">
+            <form action="https://formspree.io/f/xojoynbv" method="POST">
+                <div class="form-group">
+                    <label>Nombre completo</label>
+                    <input type="text" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" name="email" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>¿En qué puedo ayudarte?</label>
+                    <select name="servicio">
+                        <option value="">Selecciona una opción</option>
+                        <option>Terapia Individual</option>
+                        <option>Mentoría de Vida</option>
+                        <option>Reto Renace en 5 Días</option>
+                        <option>Cursos y Programas</option>
+                        <option>Conferencias</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea name="mensaje" placeholder="Cuéntame cómo puedo ayudarte..."></textarea>
+                </div>
+                <button type="submit" class="btn-gold" style="width: 100%; text-align: center; border: none; font-size: 1rem;">
+                    ✨ Enviar Mensaje
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <div class="logo">Karen Yoally</div>
+            <p>Mentora Espiritual, Guía, Tanatóloga y Conferencista. Acompañándote a conectar con tu propósito, vivir con abundancia y encontrar la paz que siempre buscaste.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="#quien-soy">Quién Soy</a></li>
+                <li><a href="#terapias">Terapias</a></li>
+                <li><a href="#reto">Reto Renace</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#agenda">Agenda</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Servicios</h4>
+            <ul>
+                <li><a href="#terapias">Sanación Emocional</a></li>
+                <li><a href="#terapias">Guía Espiritual</a></li>
+                <li><a href="#terapias">Tanatología</a></li>
+                <li><a href="#cursos">Mentorías</a></li>
+                <li><a href="#reto">Reto Renace</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Karen Yoally. Todos los derechos reservados. | Hecho con ❤️ y ✨</p>
+    </div>
+</footer>
+
+</body>
+</html>
