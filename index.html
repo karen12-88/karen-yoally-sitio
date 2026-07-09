@@ -1,0 +1,2358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Yoally | Mentora Espiritual & Reto Renace en 5 Días</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dorado: #C9A84C;
+            --dorado-claro: #E8D5A3;
+            --dorado-brillante: #FFD700;
+            --dorado-oscuro: #8B6914;
+            --dorado-rose: #D4A574;
+            --blanco: #FFFFFF;
+            --crema: #FDF8F0;
+            --crema-oscuro: #F5EDD8;
+            --negro: #0A0400;
+            --cafe-oscuro: #1a0a00;
+            --cafe-medio: #2d1500;
+            --texto-oscuro: #2C2C2C;
+            --texto-medio: #666666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--texto-oscuro);
+            background: var(--negro);
+            overflow-x: hidden;
+        }
+
+        /* ========== CURSOR PERSONALIZADO ========== */
+        body { cursor: none; }
+        .cursor {
+            width: 20px; height: 20px;
+            border: 2px solid var(--dorado);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.1s;
+            mix-blend-mode: difference;
+        }
+        .cursor-dot {
+            width: 6px; height: 6px;
+            background: var(--dorado);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+        }
+
+        /* ========== PRELOADER ========== */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--negro);
+            z-index: 99998;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease;
+        }
+        .preloader-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--dorado);
+            letter-spacing: 5px;
+            animation: shimmer-text 2s infinite;
+        }
+        .preloader-line {
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+            margin-top: 20px;
+            animation: expand-line 2s ease forwards;
+        }
+        @keyframes expand-line {
+            to { width: 200px; }
+        }
+        @keyframes shimmer-text {
+            0%, 100% { opacity: 1; text-shadow: 0 0 20px rgba(201,168,76,0.5); }
+            50% { opacity: 0.7; text-shadow: 0 0 40px rgba(201,168,76,0.9); }
+        }
+
+        /* ========== NAVBAR ========== */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(10,4,0,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        nav.scrolled {
+            padding: 12px 50px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+        }
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dorado);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        .nav-logo span { font-style: italic; color: var(--dorado-claro); }
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--dorado);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover { color: var(--dorado); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+        }
+        .nav-cta::after { display: none !important; }
+
+        /* ========== HERO PRINCIPAL ========== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #050200 0%, #1a0a00 30%, #2d1500 60%, #1a0a00 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 60px 80px;
+        }
+
+        /* Partículas de luz */
+        .particles-container {
+            position: absolute;
+            width: 100%; height: 100%;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-up linear infinite;
+            opacity: 0;
+        }
+        @keyframes float-up {
+            0% { transform: translateY(110vh) rotate(0deg) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) rotate(720deg) scale(1.5); opacity: 0; }
+        }
+
+        /* Líneas de luz */
+        .light-rays {
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 100%; height: 100%;
+            background: conic-gradient(from 180deg at 50% -20%, 
+                transparent 0deg, 
+                rgba(201,168,76,0.03) 30deg, 
+                transparent 60deg,
+                rgba(201,168,76,0.05) 90deg,
+                transparent 120deg,
+                rgba(201,168,76,0.03) 150deg,
+                transparent 180deg);
+            animation: rotate-rays 20s linear infinite;
+        }
+        @keyframes rotate-rays {
+            from { transform: translateX(-50%) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        /* Círculo de luz detrás de la foto */
+        .hero-glow {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-50%) scale(1.1); opacity: 1; }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            max-width: 1300px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            align-items: center;
+        }
+
+        .hero-text { color: var(--blanco); }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .eyebrow-line {
+            width: 40px; height: 1px;
+            background: var(--dorado);
+        }
+        .eyebrow-text {
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 8px;
+            color: var(--blanco);
+            animation: fade-up 1s ease 0.3s both;
+        }
+        .hero-title .name-italic {
+            font-style: italic;
+            color: var(--dorado);
+            display: block;
+            font-size: 6rem;
+        }
+
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+            animation: fade-up 1s ease 0.5s both;
+        }
+        .role-tag {
+            background: rgba(201,168,76,0.12);
+            border: 1px solid rgba(201,168,76,0.3);
+            color: var(--dorado-claro);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-description {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 35px;
+            font-style: italic;
+            animation: fade-up 1s ease 0.7s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fade-up 1s ease 0.9s both;
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-hero-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-hero-primary:hover::before { left: 100%; }
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201,168,76,0.6);
+        }
+
+        .btn-hero-secondary {
+            background: transparent;
+            color: var(--dorado-claro);
+            padding: 16px 40px;
+            border: 1px solid rgba(201,168,76,0.4);
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        .btn-hero-secondary:hover {
+            background: rgba(201,168,76,0.1);
+            border-color: var(--dorado);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(201,168,76,0.15);
+            animation: fade-up 1s ease 1.1s both;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--dorado);
+            font-weight: 600;
+            display: block;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Foto hero */
+        .hero-image-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: fade-up 1s ease 0.5s both;
+        }
+
+        .hero-photo-frame {
+            position: relative;
+            width: 460px;
+            height: 580px;
+        }
+
+        .frame-corner {
+            position: absolute;
+            width: 30px; height: 30px;
+            border-color: var(--dorado);
+            border-style: solid;
+            opacity: 0.6;
+        }
+        .frame-corner.tl { top: -8px; left: -8px; border-width: 2px 0 0 2px; }
+        .frame-corner.tr { top: -8px; right: -8px; border-width: 2px 2px 0 0; }
+        .frame-corner.bl { bottom: -8px; left: -8px; border-width: 0 0 2px 2px; }
+        .frame-corner.br { bottom: -8px; right: -8px; border-width: 0 2px 2px 0; }
+
+        .hero-photo-main {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+            border: 2px solid rgba(201,168,76,0.4);
+            position: relative;
+            z-index: 2;
+            filter: brightness(1.05) contrast(1.05);
+        }
+
+        .hero-photo-bg {
+            position: absolute;
+            top: 15px; left: 15px;
+            right: -15px; bottom: -15px;
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 25px;
+            z-index: 1;
+        }
+
+        .hero-photo-bg2 {
+            position: absolute;
+            top: -15px; left: -15px;
+            right: 15px; bottom: 15px;
+            border: 1px solid rgba(201,168,76,0.15);
+            border-radius: 25px;
+            z-index: 1;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white;
+            border-radius: 15px;
+            padding: 15px 20px;
+            z-index: 3;
+            box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+        }
+        .floating-badge.badge-1 {
+            bottom: -20px; right: -25px;
+            text-align: center;
+        }
+        .floating-badge.badge-2 {
+            top: 30px; left: -30px;
+            text-align: center;
+        }
+        .badge-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+        .badge-text {
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* ========== BANDA DORADA ========== */
+        .gold-band {
+            background: linear-gradient(135deg, var(--dorado-oscuro), var(--dorado), var(--dorado-oscuro));
+            padding: 20px 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        .gold-band-content {
+            display: flex;
+            gap: 60px;
+            animation: scroll-band 20s linear infinite;
+            white-space: nowrap;
+        }
+        @keyframes scroll-band {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .band-item {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: white;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .band-item::before { content: '✦'; opacity: 0.7; }
+
+        /* ========== SECCIÓN RETO RENACE ========== */
+        .reto-section {
+            background: linear-gradient(135deg, #050200 0%, #1a0a00 40%, #2d1500 70%, #1a0a00 100%);
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+            id: "reto";
+        }
+
+        .reto-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Fuego animado */
+        .fire-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .fire {
+            font-size: 3rem;
+            animation: fire-dance 1s ease-in-out infinite alternate;
+            display: inline-block;
+        }
+        @keyframes fire-dance {
+            from { transform: scale(1) rotate(-5deg); filter: drop-shadow(0 0 10px rgba(255,165,0,0.8)); }
+            to { transform: scale(1.1) rotate(5deg); filter: drop-shadow(0 0 20px rgba(255,165,0,1)); }
+        }
+
+        .reto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .reto-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reto-badge-top {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(201,168,76,0.5);
+            animation: pulse-badge 2s infinite;
+        }
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 5px 20px rgba(201,168,76,0.5); }
+            50% { box-shadow: 0 5px 40px rgba(201,168,76,0.9), 0 0 60px rgba(201,168,76,0.3); }
+        }
+
+        .reto-title-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            color: var(--blanco);
+            font-weight: 300;
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+        .reto-title-main .gold { color: var(--dorado); font-style: italic; }
+
+        .reto-subtitle-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--dorado-claro);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        /* Cuenta regresiva premium */
+        .countdown-wrapper {
+            background: rgba(201,168,76,0.06);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 20px;
+            padding: 35px;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        .countdown-title {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            margin-bottom: 25px;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+        .countdown-block {
+            text-align: center;
+        }
+        .countdown-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--dorado);
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.25);
+            border-radius: 12px;
+            padding: 15px 20px;
+            min-width: 90px;
+            text-shadow: 0 0 20px rgba(201,168,76,0.5);
+        }
+        .countdown-label {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-top: 10px;
+            display: block;
+        }
+        .countdown-sep {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--dorado);
+            opacity: 0.4;
+            margin-bottom: 20px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.1; } }
+
+        /* Grid principal del reto */
+        .reto-main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 60px;
+        }
+
+        .reto-image-side { position: relative; }
+
+        .reto-img-frame {
+            position: relative;
+        }
+        .reto-img-frame::before {
+            content: '';
+            position: absolute;
+            top: -12px; left: -12px;
+            right: 12px; bottom: 12px;
+            border: 1px solid rgba(201,168,76,0.35);
+            border-radius: 22px;
+            z-index: 0;
+        }
+        .reto-img-frame::after {
+            content: '';
+            position: absolute;
+            top: 12px; left: 12px;
+            right: -12px; bottom: -12px;
+            border: 1px solid rgba(201,168,76,0.15);
+            border-radius: 22px;
+            z-index: 0;
+        }
+        .reto-img-main {
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid rgba(201,168,76,0.5);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .reto-urgency {
+            background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .urgency-text {
+            font-size: 0.78rem;
+            color: var(--dorado-claro);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .reto-info-side { color: var(--blanco); }
+
+        .reto-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .detail-card {
+            background: rgba(201,168,76,0.07);
+            border: 1px solid rgba(201,168,76,0.18);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .detail-card:hover {
+            background: rgba(201,168,76,0.12);
+            border-color: rgba(201,168,76,0.35);
+            transform: translateY(-3px);
+        }
+        .detail-icon { font-size: 1.6rem; margin-bottom: 8px; }
+        .detail-label {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dorado-claro);
+            margin-bottom: 5px;
+        }
+        .detail-value {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--blanco);
+        }
+
+        .reto-includes-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(201,168,76,0.15);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .includes-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--dorado);
+            margin-bottom: 18px;
+        }
+        .includes-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .includes-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.83rem;
+            color: rgba(255,255,255,0.82);
+            line-height: 1.5;
+        }
+        .includes-list li .check {
+            color: var(--dorado);
+            font-size: 0.75rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .reto-price-premium {
+            background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
+            border: 1px solid rgba(201,168,76,0.35);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .reto-price-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+            animation: shimmer-line 3s infinite;
+        }
+        @keyframes shimmer-line {
+            from { left: -100%; }
+            to { left: 100%; }
+        }
+        .price-label-top {
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dorado-claro);
+            margin-bottom: 12px;
+        }
+        .price-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--dorado);
+            font-weight: 700;
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(201,168,76,0.4);
+        }
+        .price-currency {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .price-note {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 8px;
+        }
+
+        .btn-reto-premium {
+            display: block;
+            background: linear-gradient(135deg, var(--dorado), #B8860B, var(--dorado));
+            background-size: 200% 100%;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(201,168,76,0.5);
+            animation: glow-cta 3s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-reto-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.6s;
+        }
+        .btn-reto-premium:hover::before { left: 100%; }
+        .btn-reto-premium:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(201,168,76,0.7);
+        }
+        @keyframes glow-cta {
+            0%, 100% { box-shadow: 0 10px 40px rgba(201,168,76,0.5); }
+            50% { box-shadow: 0 10px 60px rgba(201,168,76,0.8), 0 0 80px rgba(201,168,76,0.3); }
+        }
+
+        /* Días del reto */
+        .reto-days {
+            margin-top: 60px;
+        }
+        .days-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--blanco);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .days-title span { color: var(--dorado); font-style: italic; }
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+        .day-card {
+            background: rgba(201,168,76,0.06);
+            border: 1px solid rgba(201,168,76,0.18);
+            border-radius: 16px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        .day-card:hover::before { transform: scaleX(1); }
+        .day-card:hover {
+            background: rgba(201,168,76,0.12);
+            transform: translateY(-5px);
+            border-color: rgba(201,168,76,0.4);
+        }
+        .day-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--dorado);
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+        .day-name {
+            font-size: 0.62rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--dorado-claro);
+            margin: 8px 0;
+        }
+        .day-theme {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--blanco);
+            font-style: italic;
+        }
+
+        /* ========== QUIÉN SOY - MI HISTORIA ========== */
+        .historia-section {
+            background: var(--crema);
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .historia-section::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .historia-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .historia-images {
+            position: relative;
+        }
+        .historia-photo-main {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 25px;
+            border: 2px solid rgba(201,168,76,0.4);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .historia-photo-secondary {
+            position: absolute;
+            bottom: -30px; right: -30px;
+            width: 200px; height: 220px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 3px solid white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .historia-badge {
+            position: absolute;
+            top: 30px; left: -20px;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white;
+            padding: 20px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+            z-index: 2;
+        }
+        .historia-badge .big-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+        .historia-badge .small-text {
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .historia-content { padding-top: 10px; }
+
+        .historia-content .section-eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dorado-oscuro);
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .historia-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--texto-oscuro);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+        .historia-content h2 span {
+            color: var(--dorado-oscuro);
+            font-style: italic;
+        }
+
+        .historia-content p {
+            font-size: 0.88rem;
+            line-height: 1.9;
+            color: var(--texto-medio);
+            margin-bottom: 18px;
+        }
+
+        .historia-content p strong {
+            color: var(--dorado-oscuro);
+            font-weight: 600;
+        }
+
+        .credentials-premium {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+            padding: 25px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid rgba(201,168,76,0.15);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .credential-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .cred-icon {
+            width: 38px; height: 38px;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .cred-text {
+            font-size: 0.82rem;
+            color: var(--texto-medio);
+            line-height: 1.4;
+        }
+        .cred-text strong { color: var(--texto-oscuro); }
+
+        /* ========== TRANSFORMACIÓN — FOTOS HISTORIA ========== */
+        .transformacion-section {
+            background: linear-gradient(135deg, #050200, #1a0a00, #2d1500, #1a0a00);
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transformacion-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .transformacion-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(201,168,76,0.2);
+            transition: all 0.4s;
+        }
+        .transformacion-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201,168,76,0.5);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .transformacion-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+        .transformacion-card:hover img { transform: scale(1.05); }
+        .transformacion-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(10,4,0,0.9));
+            padding: 30px 25px 25px;
+        }
+        .transformacion-tag {
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            margin-bottom: 5px;
+        }
+        .transformacion-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: white;
+            font-style: italic;
+        }
+
+        /* ========== SERVICIOS ========== */
+        .servicios-section {
+            background: var(--crema);
+            padding: 100px 60px;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .servicio-card {
+            background: white;
+            border: 1px solid rgba(201,168,76,0.15);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .servicio-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        .servicio-card:hover::after { transform: scaleX(1); }
+        .servicio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(201,168,76,0.15);
+            border-color: rgba(201,168,76,0.4);
+        }
+        .servicio-icon-wrap {
+            width: 70px; height: 70px;
+            background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05));
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+        .servicio-card:hover .servicio-icon-wrap {
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            border-color: transparent;
+        }
+        .servicio-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--dorado-oscuro);
+            margin-bottom: 12px;
+        }
+        .servicio-card p {
+            font-size: 0.82rem;
+            line-height: 1.8;
+            color: var(--texto-medio);
+        }
+
+        /* ========== PROCESO ========== */
+        .proceso-section {
+            background: linear-gradient(135deg, #050200, #1a0a00);
+            padding: 100px 60px;
+        }
+        .proceso-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .proceso-step {
+            text-align: center;
+            position: relative;
+        }
+        .proceso-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 35px; right: -15px;
+            width: 30px; height: 1px;
+            background: linear-gradient(90deg, var(--dorado), transparent);
+        }
+        .proceso-num {
+            width: 70px; height: 70px;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(201,168,76,0.4);
+        }
+        .proceso-step h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--dorado);
+            margin-bottom: 10px;
+        }
+        .proceso-step p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        /* ========== PRECIOS ========== */
+        .precios-section {
+            background: var(--crema);
+            padding: 100px 60px;
+        }
+
+        .precios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 950px;
+            margin: 0 auto 50px;
+        }
+
+        .precio-card {
+            background: white;
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 22px;
+            padding: 40px 35px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+        }
+        .precio-card.destacado {
+            border-color: var(--dorado);
+            box-shadow: 0 15px 50px rgba(201,168,76,0.2);
+        }
+        .precio-card.destacado::before {
+            content: '⭐ MÁS POPULAR';
+            position: absolute;
+            top: -14px; left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white;
+            padding: 5px 22px;
+            border-radius: 50px;
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .precio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(201,168,76,0.18);
+        }
+        .precio-sesiones {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--dorado-oscuro);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .precio-tachado {
+            font-size: 0.85rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+        .precio-descuento-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .precio-monto {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            color: var(--texto-oscuro);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .precio-monto span { font-size: 1.3rem; color: var(--texto-medio); }
+        .precio-moneda {
+            font-size: 0.72rem;
+            color: var(--texto-medio);
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+        .precio-btn {
+            display: block;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .precio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201,168,76,0.4);
+        }
+
+        /* Cotizar */
+        .cotizar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            max-width: 950px;
+            margin: 0 auto 50px;
+        }
+        .cotizar-card {
+            background: white;
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 22px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .cotizar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(201,168,76,0.15);
+            border-color: var(--dorado);
+        }
+        .cotizar-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .cotizar-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            color: var(--dorado-oscuro);
+            margin-bottom: 12px;
+        }
+        .cotizar-card p {
+            font-size: 0.82rem;
+            color: var(--texto-medio);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        .cotizar-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--dorado-oscuro);
+            padding: 13px 30px;
+            border: 2px solid var(--dorado);
+            border-radius: 50px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cotizar-btn:hover {
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Reto en precios */
+        .reto-precio-highlight {
+            max-width: 550px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a0a00, #2d1500);
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            border: 1px solid rgba(201,168,76,0.35);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .reto-precio-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+        }
+
+        /* ========== TESTIMONIOS ========== */
+        .testimonios-section {
+            background: linear-gradient(135deg, #050200, #1a0a00, #2d1500);
+            padding: 100px 60px;
+        }
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .testimonio-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(201,168,76,0.15);
+            border-radius: 20px;
+            padding: 35px 30px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .testimonio-card:hover {
+            background: rgba(201,168,76,0.05);
+            border-color: rgba(201,168,76,0.35);
+            transform: translateY(-5px);
+        }
+        .testimonio-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 6rem;
+            color: var(--dorado);
+            opacity: 0.2;
+            position: absolute;
+            top: 5px; left: 20px;
+            line-height: 1;
+        }
+        .testimonio-stars {
+            color: var(--dorado);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+        .testimonio-text {
+            font-size: 0.85rem;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.75);
+            font-style: italic;
+            margin-bottom: 22px;
+            padding-top: 15px;
+        }
+        .testimonio-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonio-avatar {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .testimonio-name {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--dorado-claro);
+        }
+        .testimonio-role {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ========== CALENDLY ========== */
+        .calendly-section {
+            background: var(--crema);
+            padding: 80px 60px;
+        }
+        .calendly-wrap {
+            max-width: 950px;
+            margin: 40px auto 0;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 1px solid rgba(201,168,76,0.2);
+        }
+
+        /* ========== CONTACTO ========== */
+        .contacto-section {
+            background: linear-gradient(135deg, #050200, #1a0a00);
+            padding: 100px 60px;
+        }
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: start;
+        }
+        .contacto-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--dorado);
+            margin-bottom: 20px;
+        }
+        .contacto-info p {
+            font-size: 0.85rem;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+        }
+        .contacto-items {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .contacto-icon {
+            width: 45px; height: 45px;
+            background: rgba(201,168,76,0.12);
+            border: 1px solid rgba(201,168,76,0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dorado);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .contacto-item a,
+        .contacto-item span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contacto-item a:hover { color: var(--dorado); }
+
+        .contacto-form {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 22px;
+            padding: 45px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dorado-claro);
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: white;
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--dorado);
+            background: rgba(201,168,76,0.05);
+        }
+        .form-group textarea { height: 130px; resize: vertical; }
+        .form-group select option { background: #1a0a00; }
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+        }
+
+        /* ========== SECCIÓN ENCABEZADOS GENERALES ========== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section-eyebrow {
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .section-eyebrow.dark { color: var(--dorado-oscuro); }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 300;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .section-title.light { color: var(--blanco); }
+        .section-title.dark { color: var(--texto-oscuro); }
+        .section-title span { color: var(--dorado); font-style: italic; }
+        .section-title span.dark-gold { color: var(--dorado-oscuro); font-style: italic; }
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .div-line {
+            width: 70px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--dorado));
+        }
+        .div-line.rev { background: linear-gradient(90deg, var(--dorado), transparent); }
+        .div-diamond {
+            width: 8px; height: 8px;
+            background: var(--dorado);
+            transform: rotate(45deg);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #050200;
+            padding: 60px 50px 30px;
+            border-top: 1px solid rgba(201,168,76,0.15);
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        .footer-brand .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--dorado);
+            margin-bottom: 15px;
+            display: block;
+        }
+        .footer-brand p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.7;
+            font-style: italic;
+        }
+        .footer-col h4 {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            margin-bottom: 20px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-col ul li a:hover { color: var(--dorado); }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(201,168,76,0.1);
+        }
+        .footer-copy {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 1px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+        .social-btn {
+            width: 38px; height: 38px;
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dorado);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .social-btn:hover {
+            background: var(--dorado);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ========== WHATSAPP FLOTANTE PREMIUM ========== */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        .whatsapp-bubble {
+            background: white;
+            border-radius: 16px 16px 0 16px;
+            padding: 15px 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            max-width: 280px;
+            display: none;
+            animation: pop-in 0.3s ease;
+            border: 1px solid rgba(37,211,102,0.2);
+        }
+        .whatsapp-bubble.show { display: block; }
+        @keyframes pop-in {
+            from { opacity: 0; transform: scale(0.8) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .bubble-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .bubble-avatar {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-oscuro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .bubble-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--texto-oscuro);
+        }
+        .bubble-status {
+            font-size: 0.7rem;
+            color: #25D366;
+        }
+        .bubble-message {
+            font-size: 0.82rem;
+            color: var(--texto-medio);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .bubble-message strong { color: var(--dorado-oscuro); }
+        .bubble-cta {
+            display: block;
+            background: #25D366;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .bubble-cta:hover {
+            background: #128C7E;
+            transform: translateY(-1px);
+        }
+        .whatsapp-btn {
+            width: 62px; height: 62px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.9rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+            transition: all 0.3s;
+            animation: pulse-wa 3s infinite;
+            cursor: pointer;
+        }
+        @keyframes pulse-wa {
+            0%, 100% { box-shadow: 0 8px 25px rgba(37,211,102,0.5); }
+            50% { box-shadow: 0 8px 40px rgba(37,211,102,0.8), 0 0 60px rgba(37,211,102,0.2); }
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+        .wa-notification {
+            position: absolute;
+            top: -5px; right: -5px;
+            width: 20px; height: 20px;
+            background: #FF3B30;
+            border-radius: 50%;
+            border: 2px solid white;
+            font-size: 0.65rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 4rem; }
+            .hero-title .name-italic { font-size: 4.5rem; }
+            .hero-photo-frame { width: 380px; height: 480px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero { padding: 100px 25px 60px; }
+            .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .hero-title { font-size: 3rem; }
+            .hero-title .name-italic { font-size: 3.5rem; }
+            .hero-photo-frame { width: 280px; height: 360px; margin: 0 auto; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-eyebrow { justify-content: center; }
+            .hero-roles { justify-content: center; }
+            .reto-main-grid { grid-template-columns: 1fr; }
+            .reto-title-main { font-size: 2.8rem; }
+            .days-grid { grid-template-columns: repeat(2, 1fr); }
+            .historia-grid { grid-template-columns: 1fr; gap: 40px; }
+            .historia-photo-secondary { display: none; }
+            .transformacion-grid { grid-template-columns: 1fr; }
+            .servicios-grid { grid-template-columns: 1fr; }
+            .proceso-grid { grid-template-columns: repeat(2, 1fr); }
+            .precios-grid { grid-template-columns: 1fr; }
+            .cotizar-grid { grid-template-columns: 1fr; }
+            .testimonios-grid { grid-template-columns: 1fr; }
+            .contacto-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+            .section { padding: 60px 20px; }
+            .historia-section, .transformacion-section, .servicios-section,
+            .proceso-section, .precios-section, .testimonios-section,
+            .contacto-section, .reto-section { padding: 70px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-logo">Karen Yoally</div>
+        <div class="preloader-line"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="#inicio" class="nav-logo">Karen <span>Yoally</span></a>
+        <ul class="nav-links">
+            <li><a href="#sobre-mi">Mi Historia</a></li>
+            <li><a href="#reto">Reto Renace</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto" class="nav-cta">Agendar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+        <div class="particles-container" id="particles"></div>
+        <div class="light-rays"></div>
+        <div class="hero-glow"></div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-eyebrow">
+                    <div class="eyebrow-line"></div>
+                    <span class="eyebrow-text">Mentora Espiritual & Guía de Transformación</span>
+                    <div class="eyebrow-line"></div>
+                </div>
+                <h1 class="hero-title">
+                    Soy
+                    <span class="name-italic">Karen Yoally</span>
+                </h1>
+                <div class="hero-roles">
+                    <span class="role-tag">✦ Abogada UNAM</span>
+                    <span class="role-tag">✦ Tanatóloga Espiritual</span>
+                    <span class="role-tag">✦ Canalizadora</span>
+                    <span class="role-tag">✦ Conferencista</span>
+                    <span class="role-tag">✦ Mentora</span>
+                </div>
+                <p class="hero-description">
+                    "Conecta con tu propósito, vive con abundancia<br>y encuentra la paz que siempre buscaste."
+                </p>
+                <div class="hero-buttons">
+                    <a href="#reto" class="btn-hero-primary">
+                        🔥 Únete al Reto Renace
+                    </a>
+                    <a href="#sobre-mi" class="btn-hero-secondary">
+                        ✦ Conoce mi historia
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2,000+</span>
+                        <span class="stat-label">Vidas transformadas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5 ★</span>
+                        <span class="stat-label">Valoración</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-area">
+                <div class="hero-photo-frame">
+                    <div class="frame-corner tl"></div>
+                    <div class="frame-corner tr"></div>
+                    <div class="frame-corner bl"></div>
+                    <div class="frame-corner br"></div>
+                    <img src="karen-principal.jpg" alt="Karen Yoally" class="hero-photo-main">
+                    <div class="hero-photo-bg"></div>
+                    <div class="hero-photo-bg2"></div>
+                    <div class="floating-badge badge-1">
+                        <span class="badge-number">2K+</span>
+                        <span class="badge-text">Almas<br>Guiadas</span>
+                    </div>
+                    <div class="floating-badge badge-2">
+                        <span class="badge-number">10</span>
+                        <span class="badge-text">Años de<br>Experiencia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANDA DORADA -->
+    <div class="gold-band">
+        <div class="gold-band-content" id="bandContent">
+            <span class="band-item">Mentora Espiritual</span>
+            <span class="band-item">Tanatóloga</span>
+            <span class="band-item">Canalizadora</span>
+            <span class="band-item">Reto Renace 5 Días</span>
+            <span class="band-item">Transformación Profunda</span>
+            <span class="band-item">Abogada UNAM</span>
+            <span class="band-item">Conferencista</span>
+            <span class="band-item">+2,000 Vidas</span>
+            <span class="band-item">Mentora Espiritual</span>
+            <span class="band-item">Tanatóloga</span>
+            <span class="band-item">Canalizadora</span>
+            <span class="band-item">Reto Renace 5 Días</span>
+            <span class="band-item">Transformación Profunda</span>
+            <span class="band-item">Abogada UNAM</span>
+            <span class="band-item">Conferencista</span>
+            <span class="band-item">+2,000 Vidas</span>
+        </div>
+    </div>
+
+    <!-- ===== RETO RENACE ===== -->
+    <section id="reto" class="reto-section">
+        <div class="reto-container">
+            <div class="reto-header">
+                <div class="fire-container">
+                    <span class="fire">🔥</span>
+                </div>
+                <div class="reto-badge-top">✦ Próximo Evento · Cupos Limitados ✦</div>
+                <h2 class="reto-title-main">
+                    Reto <span class="gold">Renace</span><br>en 5 Días
+                </h2>
+                <p class="reto-subtitle-main">Del dolor al propósito · Transforma tu vida en una semana</p>
+            </div>
+
+            <!-- CUENTA REGRESIVA -->
+            <div class="countdown-wrapper">
+                <p class="countdown-title">⏳ El reto comienza en...</p>
+                <div class="countdown">
+                    <div class="countdown-block">
+                        <span class="countdown-num" id="days">00</span>
+                        <span class="countdown-label">Días</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-block">
+                        <span class="countdown-num" id="hours">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-block">
+                        <span class="countdown-num" id="minutes">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-block">
+                        <span class="countdown-num" id="seconds">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID PRINCIPAL -->
+            <div class="reto-main-grid">
+                <div class="reto-image-side">
+                    <div class="reto-img-frame">
+                        <img src="reto-renace.jpg" alt="Reto Renace en 5 Días — Karen Yoally" class="reto-img-main">
+                    </div>
+                    <div class="reto-urgency">
+                        <p class="urgency-text">⚡ ¡Los cupos se están llenando! No te quedes fuera.</p>
+                    </div>
+                </div>
+
+                <div class="reto-info-side">
+                    <div class="reto-details-grid">
+                        <div class="detail-card">
+                            <div class="detail-icon">📅</div>
+                            <div class="detail-label">Fechas</div>
+                            <div class="detail-value">20 – 25 Julio 2025</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">⏰</div>
+                            <div class="detail-label">Horario</div>
+                            <div class="detail-value">8:00 PM CDMX</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">📱</div>
+                            <div class="detail-label">Modalidad</div>
+                            <div class="detail-value">100% Online</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">👥</div>
+                            <div class="detail-label">Cupos</div>
+                            <div class="detail-value">Limitados</div>
+                        </div>
+                    </div>
+
+                    <div class="reto-includes-box">
+                        <h3 class="includes-title">✦ ¿Qué incluye el reto?</h3>
+                        <ul class="includes-list">
+                            <li><span class="check">✦</span> 5 sesiones en vivo con Karen Yoally</li>
+                            <li><span class="check">✦</span> Técnicas de sanación y liberación emocional</li>
+                            <li><span class="check">✦</span> Herramientas para conectar con tu propósito</li>
+                            <li><span class="check">✦</span> Comunidad privada de apoyo en WhatsApp</li>
+                            <li><span class="check">✦</span> Material descargable exclusivo</li>
+                            <li><span class="check">✦</span> Grabaciones de cada sesión</li>
+                            <li><span class="check">✦</span> Acompañamiento personalizado durante los 5 días</li>
+                        </ul>
+                    </div>
+
+                    <div class="reto-price-premium">
+                        <div class="price-label-top">💛 Precio de lanzamiento especial</div>
+                        <div class="price-amount">$333 <span class="price-currency">MXN</span></div>
+                        <div class="price-note">Inversión única · Acceso completo a todo el contenido</div>
+                    </div>
+
+                    <a href="https://mpago.la/1H3CcXi" target="_blank" class="btn-reto-premium">
+                        🔥 ¡QUIERO MI LUGAR AHORA!
+                    </a>
+                </div>
+            </div>
+
+            <!-- LOS 5 DÍAS -->
+            <div class="reto-days">
+                <h3 class="days-title">Los <span>5 días</span> de transformación</h3>
+                <div class="days-grid">
+                    <div class="day-card">
+                        <span class="day-number">1</span>
+                        <div class="day-name">Día 1 · 20 Jul</div>
+                        <div class="day-theme">Reconoce tu dolor</div>
+                    </div>
+                    <div class="day-card">
+                        <span class="day-number">2</span>
+                        <div class="day-name">Día 2 · 21 Jul</div>
+                        <div class="day-theme">Suelta y libera</div>
+                    </div>
+                    <div class="day-card">
+                        <span class="day-number">3</span>
+                        <div class="day-name">Día 3 · 22 Jul</div>
+                        <div class="day-theme">Reconecta contigo</div>
+                    </div>
+                    <div class="day-card">
+                        <span class="day-number">4</span>
+                        <div class="day-name">Día 4 · 23 Jul</div>
+                        <div class="day-theme">Descubre tu propósito</div>
+                    </div>
+                    <div class="day-card">
+                        <span class="day-number">5</span>
+                        <div class="day-name">Día 5 · 24 Jul</div>
+                        <div class="day-theme">¡Renace!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MI HISTORIA — QUIÉN SOY ===== -->
+    <section id="sobre-mi" class="historia-section">
+        <div class="section-header">
+            <span class="section-eyebrow dark">Mi Historia</span>
+            <h2 class="section-title dark">¿Quién es <span class="dark-gold">Karen Yoally?</span></h2>
+            <div class="section-divider">
+                <div class="div-line" style="background:linear-gradient(90deg,transparent,var(--dorado-oscuro))"></div>
+                <div class="div-diamond" style="background:var(--dorado-oscuro)"></div>
+                <div class="div-line rev" style="background:linear-gradient(90deg,var(--dorado-oscuro),transparent)"></div>
+            </div>
+        </div>
+
+        <div class="historia-grid">
+            <div class="historia-images">
+                <img src="karen-quiebre.jpg" alt="Karen Yoally — Su historia" class="historia-photo-main">
+                <img src="karen-2.jpg" alt="Karen Yoally" class="historia-photo-secondary">
+                <div class="historia-badge">
+                    <span class="big-num">2K+</span>
+                    <span class="small-text">Vidas<br>Transformadas</span>
+                </div>
+            </div>
+
+            <div class="historia-content">
+                <span class="section-eyebrow">Abogada · Mentora · Guía Espiritual</span>
+                <h2>Soy Karen, <span>tu guía en el camino</span> hacia la luz</h2>
+
+                <p>
+                    Soy <strong>abogada por la UNAM</strong>, mentora espiritual, canalizadora, tanatóloga espiritual y conferencista con <strong>más de 10 años</strong> acompañando a personas en su proceso de transformación profunda.
+                </p>
+                <p>
+                    Mi camino comenzó desde el <strong>dolor propio</strong>. Viví momentos de quiebre que me llevaron a buscar respuestas más allá de lo visible. Fue en ese proceso donde descubrí el poder de la sanación espiritual y la conexión con el propósito de vida.
+                </p>
+                <p>
+                    Hoy combino mi formación jurídica, espiritual y terapéutica para ofrecerte un <strong>acompañamiento integral</strong>, donde el alma, la mente y la vida práctica se encuentran. No vine a darte respuestas hechas, vine a ayudarte a encontrar las tuyas.
+                </p>
+                <p>
+                    He tenido el honor de acompañar a <strong>más de 2,000 personas</strong> en México y Latinoamérica a sanar sus heridas, reconectar con su esencia y vivir desde su propósito más profundo.
+                </p>
+
+                <div class="credentials-premium">
+                    <div class="credential-row">
+                        <div class="cred-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="cred-text"><strong>Abogada</strong> por la Universidad Nacional Autónoma de México (UNAM)</div>
+                    </div>
+                    <div class="credential-row">
+                        <div class="cred-icon"><i class="fas fa-heart"></i></div>
+                        <div class="cred-text"><strong>Tanatóloga Espiritual</strong> certificada · Especialista en duelo y transición</div>
+                    </div>
+                    <div class="credential-row">
+                        <div class="cred-icon"><i class="fas fa-star"></i></div>
+                        <div class="cred-text"><strong>Canalizadora y Mentora Espiritual</strong> con más de una década de práctica</div>
+                    </div>
+                    <div class="credential-row">
+                        <div class="cred-icon"><i class="fas fa-microphone"></i></div>
+                        <div class="cred-text"><strong>Conferencista</strong> · Ha impartido conferencias en el Tec de Monterrey y más</div>
+                    </div>
+                </div>
+
+                <a href="#reto" class="btn-hero-primary" style="margin-top:10px;display:inline-flex">
+                    🔥 Únete al Reto Renace
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALERÍA DE TRANSFORMACIÓN ===== -->
+    <section class="transformacion-section">
+        <div class="section-header">
+            <span class="section-eyebrow">Momentos reales</span>
+            <h2 class="section-title light">Mi camino de <span>transformación</span></h2>
+            <div class="section-divider">
+                <div class="div-line"></div>
+                <div class="div-diamond"></div>
+                <div class="div-line rev"></div>
+            </div>
+        </div>
+
+        <div class="transformacion-grid">
+            <div class="transformacion-card">
+                <img src="karen-formacion.jpg" alt="Karen Yoally en el Tec de Monterrey">
+                <div class="transformacion-overlay">
+                    <div class="transformacion-tag">✦ Formación</div>
+                    <div class="transformacion-title">Conferencias & Formación</div>
+                </div>
+            </div>
+            <div class="transformacion-card">
+                <img src="karen-proposito.jpg" alt="Karen Yoally — Del dolor al propósito">
+                <div class="transformacion-overlay">
+                    <div class="transformacion-tag">✦ Propósito</div>
+                    <div class="transformacion-title">Del Dolor al Propósito</div>
+                </div>
+            </div>
+            <div class="transformacion-card">
+                <img src="karen-principal.jpg" alt="Karen Yoally — Mentora Espiritual">
+                <div class="transformacion-overlay">
+                    <div class="transformacion-tag">✦ Guía Espiritual</div>
+                    <div class="transformacion-title">Mentora & Canalizadora</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section id="servicios" class="servicios-section">
+        <div class="section-header">
+            <span class="section-eyebrow dark">Lo que ofrezco</span>
+            <h2 class="section-title dark">Mis <span class="dark-gold">Servicios</span></h2>
+            <div class="section-divider">
+                <div class="div-line" style="background:linear-gradient(90deg,transparent,var(--dorado-oscuro))"></div>
+                <div class="div-diamond" style="background:var(--dorado-oscuro)"></div>
+                <div class="div-line rev" style="background:linear-gradient(90deg,var(--dorado-oscuro),transparent)"></div>
+            </div>
+        </div>
+
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <div class="servicio-icon-wrap">🌿</div>
+                <h3>Terapia Espiritual</h3>
+                <p>Sesiones individuales de acompañamiento profundo donde trabajamos tus bloqueos emocionales, heridas del alma y patrones que te impiden avanzar hacia tu mejor versión.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon-wrap">✨</div>
+                <h3>Canalización</h3>
+                <p>Conexión con tu guía interior y mensajes del alma para darte claridad, dirección y paz en momentos de confusión, duda o transición importante en tu vida.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon-wrap">🦋</div>
+                <h3>Tanatología Espiritual</h3>
+                <p>Acompañamiento amoroso en procesos de duelo, pérdida y transición. Transformamos el dolor en aprendizaje y la pérdida en un poderoso renacimiento.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon-wrap">🎯</div>
+                <h3>Mentoría de Vida</h3>
+                <p>Proceso personalizado para encontrar tu propósito, diseñar tu vida con intención y manifestar la realidad que mereces desde tu autenticidad más profunda.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon-wrap">📚</div>
+                <h3>Cursos y Talleres</h3>
+                <p>Programas grupales intensivos para aprender herramientas de sanación, autoconocimiento y conexión espiritual en comunidad de almas afines.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="servicio-icon-wrap">🔥</div>
+                <h3>Reto Renace</h3>
+                <p>5 días de transformación profunda en vivo. Del dolor al propósito, con técnicas poderosas y una comunidad que te sostiene en cada paso del proceso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESO ===== -->
+    <section class="proceso-section">
+        <div class="section-header">
+            <span class="section-eyebrow">¿Cómo funciona?</span>
+            <h2 class="section-title light">El <span>Proceso</span> de Transformación</h2>
+            <div class="section-divider">
+                <div class="div-line"></div>
+                <div class="div-diamond"></div>
+                <div class="div-line rev"></div>
+            </div>
+        </div>
+        <div class="proceso-grid">
+            <div class="proceso-step">
+                <div class="proceso-num">1</div>
+                <h3>Primer Contacto</h3>
+                <p>Me escribes y agendamos una llamada de diagnóstico gratuita para conocer tu situación actual y lo que estás buscando.</p>
+            </div>
+            <div class="proceso-step">
+                <div class="proceso-num">2</div>
+                <h3>Plan Personalizado</h3>
+                <p>Diseñamos juntas el camino más adecuado para tu proceso único de transformación, sanación y propósito.</p>
+            </div>
+            <div class="proceso-step">
+                <div class="proceso-num">3</div>
+                <h3>Acompañamiento</h3>
+                <p>Trabajamos en sesiones profundas con herramientas espirituales, emocionales y prácticas adaptadas a ti.</p>
+            </div>
+            <div class="proceso-step">
+                <div class="proceso-num">4</div>
+                <h3>Tu Renacimiento</h3>
+                <p>Integras los cambios, conectas con tu propósito y comienzas a vivir la vida abundante que siempre mereciste.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRECIOS ===== -->
+    <section id="precios" class="precios-section">
+        <div class="section-header">
+            <span class="section-eyebrow dark">Inversión en ti</span>
+            <h2 class="section-title dark">Terapias <span class="dark-gold">Individuales</span></h2>
+            <div class="section-divider">
+                <div class="div-line" style="background:linear-gradient(90deg,transparent,var(--dorado-oscuro))"></div>
+                <div class="div-diamond" style="background:var(--dorado-oscuro)"></div>
+                <div class="div-line rev" style="background:linear-gradient(90deg,var(--dorado-oscuro),transparent)"></div>
+            </div>
+            <p style="font-size:0.85rem;color:var(--texto-medio);margin-top:15px">Cada sesión dura 60 minutos · Modalidad online o presencial</p>
+        </div>
+
+        <div class="precios-grid">
+            <div class="precio-card">
+                <div class="precio-sesiones">1 Sesión</div>
+                <div class="precio-monto">$1,900 <span>MXN</span></div>
+                <div class="precio-moneda">Precio regular por sesión</div>
+                <a href="https://calendly.com/karen-gonzalez-ramirez" target="_blank" class="precio-btn">Agendar sesión</a>
+            </div>
+            <div class="precio-card destacado">
+                <div class="precio-sesiones">4 Sesiones</div>
+                <div class="precio-tachado">$7,600 MXN</div>
+                <div class="precio-descuento-badge">🎉 Ahorras $760</div>
+                <div class="precio-monto">$6,840 <span>MXN</span></div>
+                <div class="precio-moneda">10% de descuento</div>
+                <a href="https://calendly.com/karen-gonzalez-ramirez" target="_blank" class="precio-btn">Agendar paquete</a>
+            </div>
+            <div class="precio-card">
+                <div class="precio-sesiones">7 Sesiones</div>
+                <div class="precio-tachado">$13,300 MXN</div>
+                <div class="precio-descuento-badge">🎉 Ahorras $1,330</div>
+                <div class="precio-monto">$11,970 <span>MXN</span></div>
+                <div class="precio-moneda">10% de descuento</div>
+                <a href="https://calendly.com/karen-gonzalez-ramirez" target="_blank" class="precio-btn">Agendar paquete</a>
+            </div>
+            <div class="precio-card">
+                <div class="precio-sesiones">16 Sesiones</div>
+                <div class="precio-t
