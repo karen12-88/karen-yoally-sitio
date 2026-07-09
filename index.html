@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RENACE | Reto 5 Días • Neurociencia + Espiritualidad</title>
+  <meta name="description" content="RENACE: reto de 5 días para sanar heridas emocionales, soltar el pasado y fortalecer identidad, autoestima, propósito, paz y abundancia." />
+
+  <style>
+    :root{
+      --bg:#fbfaf6;
+      --card:#ffffff;
+      --text:#171616;
+      --muted:#6a6260;
+      --gold:#d6b46d;
+      --gold2:#b79250;
+      --line:rgba(20,18,18,.10);
+      --shadow: 0 18px 50px rgba(0,0,0,.08);
+      --shadow2: 0 10px 30px rgba(0,0,0,.10);
+      --radius:18px;
+      --radius2:26px;
+      --max:1120px;
+      --focus: 0 0 0 3px rgba(214,180,109,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1000px 450px at 20% -10%, rgba(214,180,109,.22), transparent 60%),
+        radial-gradient(900px 420px at 80% 0%, rgba(214,180,109,.16), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 70%);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,250,246,.72);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:220px;
+    }
+    .mark{
+      width:42px; height:42px; border-radius:14px;
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.85), transparent 70%),
+        linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      box-shadow: 0 10px 30px rgba(214,180,109,.35);
+      border:1px solid rgba(255,255,255,.35);
+    }
+    .brand b{letter-spacing:.2px}
+    .brand small{display:block; color:var(--muted); font-weight:500; font-size:12px; margin-top:2px}
+
+    .nav-links{
+      display:flex; gap:18px; align-items:center;
+      color:var(--muted); font-weight:600; font-size:13px;
+    }
+    .nav-links a{padding:8px 10px; border-radius:999px; transition:.2s}
+    .nav-links a:hover{background:rgba(214,180,109,.10); color:var(--text)}
+    .nav-cta{
+      display:flex; gap:10px; align-items:center; justify-content:flex-end;
+      min-width:240px;
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      border-radius:999px;
+      padding:12px 16px;
+      font-weight:800;
+      letter-spacing:.2px;
+      transition:.25s;
+      border:1px solid transparent;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:focus{outline:none; box-shadow:var(--focus)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      color:#141212;
+      box-shadow: 0 16px 40px rgba(214,180,109,.28);
+      border-color: rgba(255,255,255,.35);
+    }
+    .btn-primary:hover{transform: translateY(-2px)}
+    .btn-ghost{
+      background: rgba(255,255,255,.6);
+      border-color: rgba(214,180,109,.35);
+      color:var(--text);
+    }
+    .btn-ghost:hover{
+      background: rgba(214,180,109,.10);
+      transform: translateY(-2px);
+    }
+    .btn-link{
+      background: transparent;
+      border-color: rgba(0,0,0,.08);
+      color:var(--text);
+      padding:10px 14px;
+      font-weight:800;
+    }
+    .btn-link:hover{background:rgba(0,0,0,.03); transform: translateY(-2px)}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(214,180,109,.35);
+      background: rgba(255,255,255,.55);
+      color: var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--gold);
+      box-shadow:0 0 0 5px rgba(214,180,109,.18);
+    }
+
+    /* Sections */
+    section{padding:74px 0}
+    .hero{
+      padding:58px 0 40px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid; grid-template-columns: 1.1fr .9fr;
+      gap:26px; align-items:center;
+    }
+    @media (max-width: 960px){
+      .hero-grid{grid-template-columns:1fr; gap:18px}
+      .nav-links{display:none}
+      .nav-cta{min-width:auto}
+      section{padding:56px 0}
+    }
+
+    h1{
+      font-size:44px; line-height:1.06; margin:14px 0 12px;
+      letter-spacing:-.7px;
+    }
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .lead{
+      color:var(--muted);
+      font-size:16px; line-height:1.7; margin:0 0 18px;
+      max-width:54ch;
+      font-weight:600;
+    }
+
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin:20px 0 18px;
+    }
+
+    .hero-mini{
+      display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;
+    }
+    .stat{
+      flex:1;
+      min-width:210px;
+      background: rgba(255,255,255,.58);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius);
+      padding:14px 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.04);
+    }
+    .stat b{display:block; font-size:14px}
+    .stat span{display:block; color:var(--muted); font-weight:650; font-size:13px; margin-top:4px}
+
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.8) 0%, rgba(255,255,255,.55) 100%);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 260px at 20% 10%, rgba(214,180,109,.35), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-card-inner{position:relative}
+    .hero-card h3{
+      margin:10px 0 8px;
+      font-size:18px; letter-spacing:-.2px;
+    }
+    .schedule{
+      display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+      margin-top:14px;
+    }
+    @media (max-width:520px){ .schedule{grid-template-columns:1fr} }
+    .chip{
+      border:1px solid rgba(214,180,109,.35);
+      background: rgba(255,255,255,.7);
+      border-radius: 16px;
+      padding:12px 12px;
+      display:flex; flex-direction:column; gap:4px;
+      min-height:68px;
+    }
+    .chip small{color:var(--muted); font-weight:700}
+    .chip b{font-size:14px}
+    .divider{
+      height:1px; background:rgba(0,0,0,.07); margin:16px 0;
+    }
+    .list{
+      margin:0; padding:0; list-style:none;
+      display:grid; gap:10px;
+    }
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      color:var(--muted); font-weight:650; line-height:1.5;
+    }
+    .check{
+      width:22px; height:22px; border-radius:8px;
+      background: rgba(214,180,109,.16);
+      border:1px solid rgba(214,180,109,.35);
+      display:flex; align-items:center; justify-content:center;
+      color: var(--gold2); font-weight:900; flex:0 0 auto;
+      margin-top:1px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:20px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:30px;
+      letter-spacing:-.4px;
+    }
+    .section-title p{
+      margin:10px auto 0;
+      color:var(--muted);
+      font-weight:650;
+      line-height:1.7;
+      max-width:70ch;
+    }
+
+    /* Cards */
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
+    .grid-4{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px}
+    @media (max-width: 960px){
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:1fr}
+    }
+
+    .card{
+      background: rgba(255,255,255,.62);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.04);
+      transition:.25s;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.07);
+      border-color: rgba(214,180,109,.35);
+    }
+    .icon{
+      width:44px; height:44px; border-radius: 16px;
+      background: rgba(214,180,109,.14);
+      border:1px solid rgba(214,180,109,.35);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; color: var(--gold2);
+      margin-bottom:10px;
+      position:relative;
+    }
+    .icon:after{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius: 16px;
+      background: radial-gradient(16px 16px at 30% 30%, rgba(255,255,255,.7), transparent 70%);
+      pointer-events:none;
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-weight:650; line-height:1.65; font-size:14px}
+
+    /* Process timeline */
+    .process{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start;
+    }
+    @media (max-width: 960px){ .process{grid-template-columns:1fr} }
+    .step{
+      background: rgba(255,255,255,.6);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.04);
+    }
+    .step-top{
+      display:flex; gap:12px; align-items:center;
+      margin-bottom:10px;
+    }
+    .step-num{
+      width:44px; height:44px; border-radius:16px;
+      background: linear-gradient(135deg, rgba(214,180,109,.22), rgba(214,180,109,.05));
+      border:1px solid rgba(214,180,109,.35);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; color:var(--gold2);
+    }
+    .step h3{margin:0; font-size:16px}
+    .step p{margin:0; color:var(--muted); font-weight:650; line-height:1.7; font-size:14px}
+    .step ul{margin:12px 0 0; padding-left:18px; color:var(--muted); font-weight:650}
+    .step li{margin:7px 0; line-height:1.6; font-size:14px}
+
+    /* FAQ */
+    details{
+      background: rgba(255,255,255,.62);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius);
+      padding:14px 16px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.04);
+    }
+    details + details{margin-top:12px}
+    summary{
+      cursor:pointer;
+      font-weight:850;
+      letter-spacing:.1px;
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .faq-q{font-size:15px}
+    .faq-plus{
+      width:34px; height:34px; border-radius: 12px;
+      background: rgba(214,180,109,.14);
+      border:1px solid rgba(214,180,109,.35);
+      display:flex; align-items:center; justify-content:center;
+      color: var(--gold2);
+      flex:0 0 auto;
+      font-weight:900;
+    }
+    details[open] .faq-plus{transform: rotate(45deg)}
+    .faq-a{
+      margin-top:10px;
+      color:var(--muted);
+      font-weight:650;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    /* Table-ish cards for paquetes/inversion */
+    .pricing-note{
+      text-align:center; color:var(--muted); font-weight:650; margin-top:8px
+    }
+
+    .pricing-wrap{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+      align-items:stretch;
+      margin-top:14px;
+    }
+    @media (max-width: 960px){ .pricing-wrap{grid-template-columns:1fr} }
+    .price-card{
+      background: rgba(255,255,255,.62);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.04);
+      position:relative;
+      overflow:hidden;
+    }
+    .price-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(520px 220px at 20% 10%, rgba(214,180,109,.35), transparent 60%);
+      opacity:.55; pointer-events:none;
+    }
+    .price-card > *{position:relative}
+    .price-title{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+    }
+    .tag{
+      border:1px solid rgba(214,180,109,.35);
+      background: rgba(214,180,109,.10);
+      color: var(--gold2);
+      font-weight:900;
+      padding:7px 10px; border-radius:999px;
+      font-size:12px;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .price{
+      font-size:34px;
+      letter-spacing:-.5px;
+      margin:6px 0 6px;
+      font-weight:950;
+    }
+    .price sub{
+      font-size:13px; font-weight:800; color:var(--muted); bottom:-.5em;
+      letter-spacing:0;
+    }
+    .price-desc{color:var(--muted); font-weight:650; line-height:1.7; margin:0 0 12px; font-size:14px}
+    .bullets{margin:0; padding-left:18px; color:var(--muted); font-weight:650; line-height:1.7; font-size:14px}
+    .bullets li{margin:7px 0}
+
+    /* Story */
+    .story{
+      display:grid; grid-template-columns: .95fr 1.05fr; gap:18px; align-items:stretch;
+    }
+    @media (max-width:960px){ .story{grid-template-columns:1fr} }
+    .quote{
+      background: rgba(255,255,255,.62);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.04);
+    }
+    .quote .kicker{color:var(--muted); font-weight:800; letter-spacing:.2px}
+    .quote h3{margin:10px 0 10px; font-size:18px}
+    .quote p{margin:0; color:var(--muted); font-weight:650; line-height:1.75; font-size:14px}
+
+    /* Footer */
+    footer{
+      padding:28px 0 42px;
+      border-top: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.45);
+    }
+    .footer-grid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; align-items:start;
+    }
+    @media (max-width:960px){ .footer-grid{grid-template-columns:1fr} }
+    .fine{
+      color:var(--muted); font-weight:650; line-height:1.7; font-size:13px;
+    }
+    .footer-actions{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
+    @media (max-width:960px){ .footer-actions{justify-content:flex-start} }
+
+    /* Small helper */
+    .section-anchor{scroll-margin-top:90px}
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="RENACE">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <b>RENACE</b>
+          <small>Reto de 5 días • Identidad, paz y abundancia</small>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Navegación">
+        <a href="#para-quien-es">¿Para quién es?</a>
+        <a href="#viviras">Lo que vivirás</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="https://wa.me/525580987380?text=TERAPIAS" target="_blank" rel="noopener">
+          📲 Quiero terapias
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="pill"><span class="dot" aria-hidden="true"></span> 20 al 25 de julio • 5 días de transformación</span>
+          <h1>RENACE: suelta el pasado y fortalece tu <span style="color:var(--gold2)">identidad</span>.</h1>
+          <p class="lead">
+            Un proceso guiado que combina neurociencia, espiritualidad y herramientas prácticas para sanar heridas emocionales,
+            elevar autoestima, reconectar con tu propósito y abrir espacio a la paz y la abundancia.
+          </p>
+
+          <div class="hero-actions">
+            <!-- CTA principal -->
+            <a class="btn btn-primary" href="https://mpago.la/1H3CcXi" target="_blank" rel="noopener">
+              ✨ Inscríbete ahora
+            </a>
+
+            <a class="btn btn-ghost" href="https://wa.me/525580987380?text=RENACE" target="_blank" rel="noopener">
+              💬 Quiero más información
+            </a>
+          </div>
+
+          <div class="hero-mini" aria-label="Resultados clave">
+            <div class="stat">
+              <b>Sanar</b>
+              <span>heridas emocionales con acompañamiento y método</span>
+            </div>
+            <div class="stat">
+              <b>Soltar</b>
+              <span>el pasado y el “peso” que te limita por dentro</span>
+            </div>
+            <div class="stat">
+              <b>Fortalecer</b>
+              <span>autoestima, identidad y propósito para avanzar</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Detalles del reto">
+          <div class="hero-card-inner">
+            <span class="pill" style="margin-bottom:8px"><span class="dot" aria-hidden="true"></span> Acompañamiento con seguimiento</span>
+            <h3>Tu RENACE en 5 días</h3>
+            <div class="schedule">
+              <div class="chip">
+                <small>Fechas</small>
+                <b>20–25 julio</b>
+              </div>
+              <div class="chip">
+                <small>Formato</small>
+                <b>En línea + presencial (CDMX)</b>
+              </div>
+              <div class="chip">
+                <small>Acceso</small>
+                <b>Grabaciones para integrar</b>
+              </div>
+              <div class="chip">
+                <small>Tiempo</small>
+                <b>Sesiones guiadas + prácticas</b>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <ul class="list">
+              <li class="li"><span class="check">✓</span> Ejercicios para limpiar emoción y recuperar claridad.</li>
+              <li class="li"><span class="check">✓</span> Herramientas de neurociencia para reprogramar patrones.</li>
+              <li class="li"><span class="check">✓</span> Enfoque espiritual práctico: calma, presencia y dirección.</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <a class="btn btn-primary" style="width:100%" href="https://mpago.la/1H3CcXi" target="_blank" rel="noopener">
+              Quiero aplicar al reto RENACE en 5 días
+            </a>
+            <p class="pricing-note" style="text-align:left; margin-top:10px">
+              Si prefieres, escribe por WhatsApp y te comparto toda la información.
+            </p>
+            <a class="btn btn-link" style="width:100%" href="https://wa.me/525580987380?text=RENACE" target="_blank" rel="noopener">
+              📲 WhatsApp: RENACE
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ¿Para quién es? -->
+    <section id="para-quien-es" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>¿Para quién es RENACE?</h2>
+          <p>
+            Para hombres y mujeres que están listos para dejar de cargar con lo que ya no sirve y empezar a construir
+            una versión más auténtica de ti.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🕊️</div>
+            <h3>Si quieres paz interior</h3>
+            <p>Para soltar tensiones, repetir menos patrones y volver a ti con calma.</p>
+          </div>
+          <div class="card">
+            <div class="icon">✨</div>
+            <h3>Si buscas fortalecer autoestima</h3>
+            <p>Para sostenerte, confiar en tu valor y actuar desde tu identidad.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Si sientes que te atas</h3>
+            <p>Para entender el “por qué” emocional y cambiar desde la mente y el sistema.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🌙</div>
+            <h3>Si necesitas soltar el pasado</h3>
+            <p>Para cerrar ciclos y dejar de vivir desde la herida.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🌱</div>
+            <h3>Si quieres propósito y dirección</h3>
+            <p>Para alinear decisiones con lo que realmente quieres ser y vivir.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🌟</div>
+            <h3>Si buscas abundancia en calma</h3>
+            <p>Para abrir espacio interno: merecimiento, recepción y nuevos caminos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lo que vivirás -->
+    <section id="viviras" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Lo que vivirás durante RENACE</h2>
+          <p>
+            Un recorrido breve pero profundo para transformar tu manera de sentir, pensar y responder ante la vida.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="icon">1</div>
+            <h3>Reconexión</h3>
+            <p>Traer claridad a lo que te está moviendo por dentro.</p>
+          </div>
+          <div class="card">
+            <div class="icon">2</div>
+            <h3>Liberación</h3>
+            <p>Soltar cargas emocionales y soltar el “peso del pasado”.</p>
+          </div>
+          <div class="card">
+            <div class="icon">3</div>
+            <h3>Reprogramación</h3>
+            <p>Herramientas neuro para cambiar patrones automáticos.</p>
+          </div>
+          <div class="card">
+            <div class="icon">4</div>
+            <h3>Integración</h3>
+            <p>Prácticas para sostener paz, identidad y propósito.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section id="como-funciona" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Cómo funciona</h2>
+          <p>
+            Te acompaño con estructura, herramientas y presencia. Tú solo vienes y haces el proceso paso a paso.
+          </p>
+        </div>
+
+        <div class="process">
+          <div class="step">
+            <div class="step-top">
+              <div class="step-num">📅</div>
+              <div>
+                <h3>Fechas y ritmo</h3>
+              </div>
+            </div>
+            <p>Del 20 al 25 de julio, con una secuencia diseñada para avanzar de la emoción hacia la integración.</p>
+            <ul>
+              <li>Sesiones guiadas + prácticas</li>
+              <li>Aplicación diaria breve</li>
+              <li>Acompañamiento dentro del proceso</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-num">🎧</div>
+              <div>
+                <h3>Modalidad y grabaciones</h3>
+              </div>
+            </div>
+            <p>Vives el reto en línea y/o presencial en CDMX. Además, cuentas con acceso a grabaciones para integrar.</p>
+            <ul>
+              <li>Acceso a grabaciones</li>
+              <li>Guía para integrar lo que vas viviendo</li>
+              <li>Herramientas prácticas para tu día a día</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Beneficios que empiezas a notar</h2>
+          <p>Lo que cambia por dentro se refleja en cómo decides, cómo te tratas y en cómo recibes la vida.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🧬</div>
+            <h3>Identidad más sólida</h3>
+            <p>Menos duda. Más dirección. Más “yo sé quién soy”.</p>
+          </div>
+          <div class="card">
+            <div class="icon">💛</div>
+            <h3>Autoestima real</h3>
+            <p>Te sostienes desde tu valor, no desde la aprobación externa.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🕊️</div>
+            <h3>Paz emocional</h3>
+            <p>Más calma, menos reactividad y más presencia.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🌠</div>
+            <h3>Propósito</h3>
+            <p>Claridad para alinear decisiones con tu camino.</p>
+          </div>
+          <div class="card">
+            <div class="icon">💎</div>
+            <h3>Abundancia en tu sistema</h3>
+            <p>Desbloqueas merecimiento y abres espacio para recibir.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Cambio sostenible</h3>
+            <p>Herramientas que aplicas para que la transformación permanezca.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mi historia -->
+    <section id="mi-historia" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mi historia</h2>
+          <p>Un camino que empezó con escucharme y terminó en guiar a otras personas a reencontrarse.</p>
+        </div>
+
+        <div class="story">
+          <div class="quote">
+            <div class="kicker">Conexión • Disciplina • Presencia</div>
+            <h3>Cuando entendí mi emoción, entendí mi vida</h3>
+            <p>
+              Durante años cargué con lo que no se veía: patrones, creencias y heridas emocionales que se presentaban
+              como “problemas” externos. Pero la verdadera raíz estaba dentro.
+              <br><br>
+              Con entrenamiento, estudio y práctica —mezclando neurociencia, espiritualidad y terapia— aprendí a
+              transformar mi manera de sentir y responder. Y descubrí algo: la paz no llega por “pensar positivo”,
+              llega por integrar lo que antes fue ignorado.
+            </p>
+          </div>
+
+          <div class="quote">
+            <div class="kicker">Guía para tu proceso</div>
+            <h3>RENACE nació para ser un antes y un después</h3>
+            <p>
+              RENACE no es solo una experiencia: es un proceso guiado con estructura, herramientas y seguimiento para
+              integrar cambios reales. Mi propósito es acompañarte con claridad, cuidado y método para que avances
+              con identidad fortalecida, autoestima, propósito, paz y abundancia.
+            </p>
+            <div class="divider"></div>
+            <a class="btn btn-primary" href="https://mpago.la/1H3CcXi" target="_blank" rel="noopener">
+              ✨ Quiero aplicar al reto RENACE en 5 días
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mi autoridad -->
+    <section id="mi-autoridad" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mi autoridad</h2>
+          <p>Una mezcla consciente de neurociencia, crecimiento personal y espiritualidad aplicada.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Neurociencia aplicada</h3>
+            <p>Entendemos patrones, emoción y respuesta para reprogramar desde lo que vive en tu sistema.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🕯️</div>
+            <h3>Espiritualidad práctica</h3>
+            <p>Presencia, conexión interna y guía para transformar sin caer en lo confuso o recargado.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🤍</div>
+            <h3>Acompañamiento real</h3>
+            <p>Proceso guiado con seguimiento, para que lo que aprendes se integre de verdad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inversión -->
+    <section id="inversion" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Inversión</h2>
+          <p>Promoción de lanzamiento para iniciar tu transformación con claridad.</p>
+        </div>
+
+        <div class="pricing-note">✨ Elige el acompañamiento que mejor se adapte a tu proceso</div>
+
+        <div class="pricing-wrap">
+          <div class="price-card">
+            <div class="price-title">
+              <b>Reto RENACE (5 días)</b>
+              <span class="tag">Lanzamiento</span>
+            </div>
+
+            <div class="price">$333 <sub>MXN</sub></div>
+            <p class="price-desc">
+              Acceso al reto, acompañamiento guiado y grabaciones para integrar tu experiencia.
+            </p>
+
+            <ul class="bullets">
+              <li>Proceso paso a paso durante 5 días</li>
+              <li>Acceso a grabaciones</li>
+              <li>Herramientas prácticas para tu transformación</li>
+            </ul>
+
+            <div class="divider"></div>
+            <a class="btn btn-primary" style="width:100%" href="https://mpago.la/1H3CcXi" target="_blank" rel="noopener">
+              Inscríbete ahora
+            </a>
+            <p class="fine" style="margin:10px 0 0">
+              ¿Quieres confirmar detalles? Escribe por WhatsApp.
+            </p>
+            <a class="btn btn-ghost" style="width:100%; margin-top:10px" href="https://wa.me/525580987380?text=RENACE" target="_blank" rel="noopener">
+              📲 WhatsApp: RENACE
+            </a>
+          </div>
+
+          <div class="price-card">
+            <div class="price-title">
+              <b>Sesión de orientación</b>
+              <span class="tag">Apoyo</span>
+            </div>
+
+            <div class="price">$ — <sub>por definir</sub></div>
+            <p class="price-desc">
+              Si estás en etapa de decisión, te acompaño a identificar tu mejor siguiente paso:
+              reto, terapia o seguimiento.
+            </p>
+
+            <ul class="bullets">
+              <li>Claridad sobre tu proceso actual</li>
+              <li>Recomendación de modalidad</li>
+              <li>Ruta para integrar sin perderte</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <a class="btn btn-ghost" style="width:100%" href="https://calendly.com/karen-gonzalez-ramirez/30min" target="_blank" rel="noopener">
+              📅 Agendar por Calendly
+            </a>
+
+            <a class="btn btn-link" style="width:100%; margin-top:10px" href="https://wa.me/525580987380?text=TERAPIAS" target="_blank" rel="noopener">
+              💬 WhatsApp: TERAPIAS
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sesiones Personalizadas -->
+    <section id="sesiones-personalizadas" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sesiones Personalizadas</h2>
+          <p>
+            Para llevar tu transformación al siguiente nivel. Trabajamos tu historia emocional, tu identidad y tu integración en tu vida real.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🧩</div>
+            <h3>Transformación emocional</h3>
+            <p>Sanar heridas y soltar el pasado con acompañamiento y claridad.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Neuroherramientas</h3>
+            <p>Prácticas para reprogramar respuestas automáticas y elegir mejor.</p>
+          </div>
+          <div class="card">
+            <div class="icon">✨</div>
+            <h3>Reconexión espiritual</h3>
+            <p>Presencia, paz interna y dirección con un enfoque práctico.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center">
+          <a class="btn btn-primary" href="https://calendly.com/karen-gonzalez-ramirez/30min" target="_blank" rel="noopener">📅 Quiero una sesión</a>
+          <a class="btn btn-ghost" href="https://wa.me/525580987380?text=TERAPIAS" target="_blank" rel="noopener">💬 Preguntar por terapias</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modalidad -->
+    <section id="modalidad" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Modalidad</h2>
+          <p>Una experiencia cuidada, accesible y sostenida por estructura.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="icon">💻</div>
+            <h3>En línea</h3>
+            <p>Para quienes están en cualquier parte del mundo. Integración con grabaciones.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3>Presencial (CDMX)</h3>
+            <p>Para quienes prefieren el encuentro presencial, con el mismo enfoque y guía.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paquetes -->
+    <section id="paquetes" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Paquetes</h2>
+          <p>Elige tu ritmo: inicia con RENACE o continúa con apoyo personalizado.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🌟</div>
+            <h3>Inicio consciente</h3>
+            <p>RENACE (5 días) para ordenar emoción, identidad y propósito.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧭</div>
+            <h3>Ruta de integración</h3>
+            <p>Sesiones personalizadas para sostener cambios y transformar en tu vida.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🕯️</div>
+            <h3>Acompañamiento continuo</h3>
+            <p>Seguimiento para integrar, sostener paz y construir abundancia en calma.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center">
+          <a class="btn btn-primary" href="https://mpago.la/1H3CcXi" target="_blank" rel="noopener">Inscríbete al reto</a>
+          <a class="btn btn-ghost" href="https://wa.me/525580987380?text=RENACE" target="_blank" rel="noopener">Quiero más info</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-anchor">
+      <div class="container">
+        <div class="section-title">
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas claras para que tomes tu decisión con tranquilidad.</p>
+        </div>
+
+        <div>
+          <details>
+            <summary>
+              <span class="faq-q">¿Cuánto dura RENACE?</span>
+              <span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-a">
+              RENACE dura 5 días (del 20 al 25 de julio). Cada día tiene una secuencia pensada para avanzar en transformación e integración.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="faq-q">¿A qué horario son las sesiones?</span>
+              <span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-a">
+              El horario exacto se comparte al confirmar tu inscripción. Puedes escribir por WhatsApp “RENACE” y te lo enviamos de inmediato.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="faq-q">¿Es en línea o presencial?</span>
+              <span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-a">
+              Ambas modalidades: en línea para quienes están en cualquier parte y presencial en CDMX para quien prefiera el encuentro.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="faq-q">¿Hay grabaciones?</span>
+              <span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-a">
+              Sí. Todas las personas tendrán acceso a grabaciones para integrar el proceso a su propio ritmo.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="faq-q">¿Qué tipo de contenido voy a vivir?</span>
+              <span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-a">
+              Combinamos neurociencia, crecimiento personal y espiritualidad práctica: ejercicios emocionales, herramientas para reprogramar patrones y guías para sostener paz, identidad y propósito.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="faq-q">¿Es un grupo? ¿Cómo es la experiencia?</span>
+              <span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-a">
+              Sí, es una experiencia grupal guiada. Recibes acompañamiento en el proceso y herramientas para integrar lo que se va viviendo.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="faq-q">¿Puedo pedir información antes de pagar?</span>
+              <span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-a">
+              Claro. Escríbenos por WhatsApp con “RENACE” y te compartimos inversión, pasos de inscripción y detalles de la modalidad.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acompañamiento cercano (reemplaza garantía) -->
+    <section id="acompanamiento" class="section-anchor" style="padding-top:10px">
+      <div class="container">
+        <div class="quote">
+          <div class="kicker">Acompañamiento cercano</div>
+          <h3>RENACE es un proceso guiado: un antes y un después</h3>
+          <p>
+            No estás sola. RENACE incluye guía para integrar, acompañamiento durante el proceso y seguimiento para que lo que cambias
+            por dentro se sostenga afuera. Es el inicio de una transformación profunda: paz emocional, identidad fortalecida y abundancia en calma.
+          </p>
+          <div class="divider"></div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center">
+            <a class="btn btn-primary" href="https://mpago.la/1H3CcXi" target="_blank" rel="noopener">
+              ✨ Inscríbete ahora
+            </a>
+            <a class="btn btn-ghost" href="https://wa.me/525580987380?text=RENACE" target="_blank" rel="noopener">
+              💬 Escribe por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <div class="brand" style="min-width:auto">
+            <div class="mark" aria-hidden="true"></div>
+            <div>
+              <b>RENACE</b>
+              <small>Neurociencia • Espiritualidad • Transformación</small>
+            </div>
+          </div>
+          <p class="fine" style="margin-top:12px">
+            Promoción lanzamiento: <b>$333 MXN</b> (20 al 25 de julio).<br/>
+            Para dudas: WhatsApp <b>+52 55 8098 7380</b>.
+          </p>
+          <p class="fine" style="margin-top:10px">© <span id="year"></span> Karen Yoally • Todos los derechos reservados.</p>
+        </div>
+
+        <div class="footer-actions">
+          <a class="btn btn-ghost" href="https://mpago.la/1H3CcXi" target="_blank" rel="noopener">Pago RENACE</a>
+          <a class="btn btn-primary" href="https://wa.me/525580987380?text=RENACE" target="_blank" rel="noopener">WhatsApp RENACE</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Comentarios: JS mínimo para ajustes/optimización (no dependencias)
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll para anclas
+    (function(){
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          const id = a.getAttribute('href');
+          if(!id || id.length < 2) return;
+          const el = document.querySelector(id);
+          if(!el) return;
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
